@@ -7,12 +7,18 @@
     <mvc:annotation-driven/>
     <context:component-scan base-package="am.diamond"/>
 
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/view"/>
-        <property name="suffix" value=".jsp"/>
-        <property name="order" value="1"/>
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.tiles3.TilesView"/>
     </bean>
-
+    <bean id="tilesConfigurer"
+          class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+        <property name="definitions">
+            <list>
+                <value>/WEB-INF/config/tiles.xml</value>
+            </list>
+        </property>
+    </bean>
     <!--<mvc:interceptors>-->
         <!--<mvc:interceptor>-->
             <!--<mvc:mapping path="/admin/*"/>-->
@@ -20,7 +26,7 @@
         <!--</mvc:interceptor>-->
     <!--</mvc:interceptors>-->
 
-    <mvc:view-controller path="manager.html" view-name="/manager/manager"/>
+
 
     <tx:annotation-driven/>
 
