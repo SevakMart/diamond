@@ -27,7 +27,7 @@
     </span>
                             <!-- Customer Account Login -->
                             <div id="loginBox" class="dropdown-menu text-left">
-                                <form method="post" action="https://cs-utc-jewelry.myshopify.com/account/login"
+                                <form method="post" action="/login"
                                       id="customer_login" accept-charset="UTF-8"><input type="hidden"
                                                                                         value="customer_login"
                                                                                         name="form_type"/><input
@@ -37,20 +37,19 @@
                                             <li class="clearfix">
                                                 <label for="customer_email_box" class="control-label">Էլ-փոստ <span
                                                         class="req">*</span></label>
-                                                <input type="email" value="" name="customer[email]"
+                                                <input type="email" value="" name="email"
                                                        id="customer_email_box" class="form-control"/>
                                             </li>
 
                                             <li class="clearfix">
                                                 <label for="customer_password_box" class="control-label">Գաղտնաբառ
                                                     <span class="req">*</span></label>
-                                                <input type="password" value="" name="customer[password]"
+                                                <input type="password" value="" name="password"
                                                        id="customer_password_box" class="form-control password"/>
                                             </li>
 
                                             <li class="clearfix">
-                                                <a class="btn" type="submit" href="#"
-                                                   style="width: 250px ">Մուտք</a>
+                                                <button class="btn" type="submit" >login</button>
                                             </li>
                                             <li class="clearfix">
                                                 <a class="action btn btn-1" href="#">Ստեղծել նոր էջ</a>
@@ -162,10 +161,8 @@
         <ul class="list-inline">
             <li class="top-logo" style="width: auto">
                 <a id="site-title" href="index.html" title="Diamond">
-
-                    <img class="img-responsive" src="img/logo-bootstrap-shoping-cart%20копия.png"
+                    <img class="img-responsive" src="../../resources/images/logo-diamond.png"
                          style="width: 100px; height: 80px" alt="Jewelry - Shopify theme"/>
-
                 </a>
 
             </li>

@@ -3,6 +3,7 @@ package am.diamond.dao.userdao;
 import am.diamond.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -38,5 +39,12 @@ public class UserDaoImpl implements UserDao {
 
     public Set<User> getAll() {
         return null;
+    }
+
+    @Override
+    public User getUserByEmailAndPassword(String email, String password) {
+        Session session = sessionFactory.getCurrentSession();
+        return (User) session.createCriteria(User.class).add(Restrictions.eq("email", email))
+                .add(Restrictions.eq("password", password)).uniqueResult();
     }
 }

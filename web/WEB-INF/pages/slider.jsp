@@ -28,7 +28,7 @@
 
 
                 <div class="camera_caption camera_image-caption_1 moveFromLeft">
-                    <img src="img/loggo.png" width="500px" alt="image_caption"/>
+                    <img src="../../resources/images/loggo.png" width="33%" alt="image_caption"/>
                 </div>
 
 

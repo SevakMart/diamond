@@ -10,4 +10,6 @@ import am.diamond.model.User;
  * Created by sevak on 5/20/17.
  */
 public interface UserDao extends Creatable<User>, Removeable<User>, Updateable<User>, Retrieveable<User> {
+
+    User getUserByEmailAndPassword(String email, String password);
 }
