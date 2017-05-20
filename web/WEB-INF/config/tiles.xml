@@ -8,11 +8,15 @@
 
     <!--layouts-->
     <definition name="main.view" template="/WEB-INF/pages/main_layout.jsp">
-        <put-attribute name="title" value=""/>
         <put-attribute name="import" value="/WEB-INF/pages/import.jsp"/>
         <put-attribute name="header" value="/WEB-INF/pages/header.jsp"/>
-        <put-attribute name="body" value=""/>
+        <put-attribute name="slider" value="/WEB-INF/pages/slider.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/pages/footer.jsp"/>
+    </definition>
+    
+    <definition name="home.view" extends="main.view">
+        <put-attribute name="title" value="HOME PAGE"/>
+        <put-attribute name="content" value="/WEB-INF/pages/content.jsp"/>
     </definition>
 
 

@@ -1,11 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: sevak
-  Date: 5/17/17
-  Time: 1:11 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
@@ -17,6 +9,11 @@
 <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
 
 <meta name="description" content=""/>
+
+
+<title>Diamond Jewelery Salon</title>
+
+
 <meta property="og:image" content="//cdn.shopify.com/s/files/1/0908/7252/t/2/assets/logo.png?1065742395697979892"/>
 
 
