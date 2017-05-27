@@ -53,7 +53,7 @@
                                                 <button class="btn" type="submit" >login</button>
                                             </li>
                                             <li class="clearfix">
-                                                <a class="action btn btn-1" href="#">Ստեղծել նոր էջ</a>
+                                                <a class="action btn btn-1" href="/showRegister">Ստեղծել նոր էջ</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -62,7 +62,7 @@
                         </li>
                         <li>/</li>
                         <li class="register">
-                            <a href="#" id="customer_register_link" id="customer_register_link">Ստեղծել նոր էջ</a>
+                            <a href="/showRegister" id="customer_register_link" id="customer_register_link">Ստեղծել նոր էջ</a>
                         </li>
 
 
@@ -573,7 +573,7 @@
 
 
                                 <li class="nav-item">
-                                    <a href="contact.html">
+                                    <a href="/showContact">
                                         <span> Հետադարձ Կապ</span>
                                     </a>
                                 </li>

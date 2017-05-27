@@ -7,16 +7,33 @@
 <tiles-definitions>
 
     <!--layouts-->
-    <definition name="main.view" template="/WEB-INF/pages/main_layout.jsp">
+    <definition name="main.view" template="/WEB-INF/pages/layouts/main_layout.jsp">
         <put-attribute name="import" value="/WEB-INF/pages/import.jsp"/>
         <put-attribute name="header" value="/WEB-INF/pages/header.jsp"/>
         <put-attribute name="slider" value="/WEB-INF/pages/slider.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/pages/footer.jsp"/>
     </definition>
-    
+
+    <definition name="secondary.view" template="/WEB-INF/pages/layouts/secondary_layout.jsp">
+        <put-attribute name="import" value="/WEB-INF/pages/import.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/pages/header.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/pages/footer.jsp"/>
+    </definition>
+
+    <!--pages-->
     <definition name="home.view" extends="main.view">
-        <put-attribute name="title" value="HOME PAGE"/>
+        <put-attribute name="title" value="Diamond Home Page"/>
         <put-attribute name="content" value="/WEB-INF/pages/content.jsp"/>
+    </definition>
+
+    <definition name="register.view" extends="secondary.view">
+        <put-attribute name="title" value="Create Account"/>
+        <put-attribute name="content" value="/WEB-INF/pages/register.jsp"/>
+    </definition>
+
+    <definition name="contactUs.view" extends="secondary.view">
+        <put-attribute name="title" value="Contact Us"/>
+        <put-attribute name="content" value="/WEB-INF/pages/contact-us.jsp"/>
     </definition>
 
 

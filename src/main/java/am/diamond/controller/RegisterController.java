@@ -18,6 +18,11 @@ public class RegisterController {
     @Autowired
     UserService userService;
 
+    @RequestMapping(value = "/showRegister")
+    public String showRegisterPage(){
+        return "register.view";
+    }
+
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(@RequestParam("userName") String userName,
                            @RequestParam("email") String email,
