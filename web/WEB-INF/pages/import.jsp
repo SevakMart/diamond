@@ -96,7 +96,6 @@
 <script src="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/jquery.zoom.js?1065742395697979892"
         type="text/javascript"></script>
 
-<script src="services/javascripts/currencies.js" type="text/javascript"></script>
 <script src="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/jquery.currencies.min.js?1065742395697979892"
         type="text/javascript"></script>
 <script src="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/cs.script.js?1065742395697979892"
@@ -289,5 +288,3 @@ window._fbq.push(['track', '6016096938024', {'value': '0.00', 'currency': 'USD'}
 
     })();
 </script>
-
-<script type="text/javascript" src="/js/index_page_custom_js.js"></script>

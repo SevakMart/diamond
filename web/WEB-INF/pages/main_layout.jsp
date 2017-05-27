@@ -12,12 +12,16 @@
     <title><tiles:getAsString name="title"/></title>
     <tiles:insertAttribute name="import" ignore="true"/>
 </head>
-<body itemscope itemtype="http://schema.org/WebPage" class="templateIndex">
+<body class="templateIndex">
 <header id="top" class="fadeInDown clearfix">
     <tiles:insertAttribute name="header"/>
 </header>
 <div id="content-wrapper-parent">
-    <tiles:insertAttribute name="slider"/>
+    <div id="content-wrapper">
+        <div class="home-slider-wrapper clearfix">
+            <tiles:insertAttribute name="slider"/>
+        </div>
+    </div>
 </div>
 <section class="content">
     <tiles:insertAttribute name="content"/>

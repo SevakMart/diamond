@@ -1,3 +1,4 @@
+<%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: sevak
@@ -84,20 +85,20 @@
                                 <ul class="currencies dropdown-menu text-left">
 
                                     <li class="currency-EUR">
-                                        <a href="javascript:"><a href="#"><img src="img/arm.gif" class="flags"
+                                        <a href="javascript:"><a href="#"><img src="staticresources/images/arm_flag.gif" class="flags"
                                                                                style="width:20px; height: 15px"></a></a>
                                         <input type="hidden" value="EUR"/>
                                     </li>
 
                                     <li class="currency-GBP">
-                                        <a href="javascript:"><a href="#"><img src="img/a4mse-russian_fla.jpg"
+                                        <a href="javascript:"><a href="#"><img src="staticresources/images/russian_flag.jpg"
                                                                                class="flags"
                                                                                style="width:20px; height: 15px"></a></a>
                                         <input type="hidden" value="GBP"/>
                                     </li>
                                     <li class="currency-USD active">
                                         <a href="javascript:;"> <a href="#"><img
-                                                src="img/Flag_of_the_United_States.svg.png" class="flags"
+                                                src="staticresources/images/us_flag.png" class="flags"
                                                 style="width:20px; height: 15px"></a></a>
                                         <input type="hidden" value="USD"/>
                                     </li>
@@ -161,8 +162,8 @@
         <ul class="list-inline">
             <li class="top-logo" style="width: auto">
                 <a id="site-title" href="index.html" title="Diamond">
-                    <img class="img-responsive" src="../../resources/images/logo-diamond.png"
-                         style="width: 100px; height: 80px" alt="Jewelry - Shopify theme"/>
+                    <img src="staticresources/images/logo-diamond.png" style="width: 100px; height: 80px"/>
+                    <%--<img  src="" style="width: 100px; height: 80px" alt="Jewelry - Shopify theme"/>--%>
                 </a>
 
             </li>
