@@ -161,9 +161,8 @@
 
         <ul class="list-inline">
             <li class="top-logo" style="width: auto">
-                <a id="site-title" href="index.html" title="Diamond">
+                <a id="site-title" href="/viewMain" title="Diamond">
                     <img src="staticresources/images/logo-diamond.png" style="width: 100px; height: 80px"/>
-                    <%--<img  src="" style="width: 100px; height: 80px" alt="Jewelry - Shopify theme"/>--%>
                 </a>
 
             </li>
@@ -230,14 +229,14 @@
 
 
                                 <li class="nav-item active">
-                                    <a href="index.html">
+                                    <a href="/viewMain">
                                         <span>Գլխավոր</span>
                                     </a>
                                 </li>
 
 
                                 <li class="dropdown mega-menu">
-                                    <a href="all.html" class="dropdown-toggle dropdown-link" data-toggle="dropdown">
+                                    <a href="/getAllProducts" class="dropdown-toggle dropdown-link" data-toggle="dropdown">
                                         <span>Տեսականի</span>
 
                                         <i class="fa fa-caret-down"></i>
@@ -467,9 +466,6 @@
                                                 </ul>
                                             </li>
 
-                                            </li>
-                                            </li>
-
                                         </ul>
                                     </div>
 
@@ -488,7 +484,7 @@
                                         <i class="sub-dropdown visible-sm visible-md visible-lg"></i>
                                     </a>
 
-                                    <div class="megamenu-container megamenu-container-2 dropdown-menu banner-right mega-col-2">
+                                    <div class="megamenu-co ntainer megamenu-container-2 dropdown-menu banner-right mega-col-2">
 
                                         <ul class="sub-mega-menu">
 
@@ -560,10 +556,8 @@
                                         <li class=""><a tabindex="-1" href="sample-blog-with-grid-3-columns.html">Դայմոնդ
                                             Ոսկերչական Սրահ</a></li>
 
-                                        <li class=""><a tabindex="-1" href="about-us.html">Սրահի մասին</a></li>
-                                        <li class=""><a tabindex="-1" href="sample-blog-with-grid-3-columns.html">Կյանքը
-                                            Դայմոնդում</a></li>
-                                        <li class=""><a tabindex="-1" href="sample-blog-full-width.html">Դայմոնդ
+                                        <li class=""><a tabindex="-1" href="/showAboutUs">Սրահի մասին</a></li>
+                                        <li class=""><a tabindex="-1" href="/showBlog">Դայմոնդ
                                             բլոգ</a></li>
                                         <li class=""><a tabindex="-1" href="sample-blog-full-width.html">Թափուր
                                             աշխատատեղեր</a></li>

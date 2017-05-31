@@ -18,14 +18,59 @@
 </header>
 <div id="content-wrapper-parent">
     <div id="content-wrapper">
-        <div class="home-slider-wrapper clearfix">
-            <tiles:insertAttribute name="slider"/>
+        <div id="content" class="clearfix">
+            <div id="breadcrumb" class="breadcrumb">
+                <div itemprop="breadcrumb" class="container">
+                    <div class="row">
+                        <div class="col-md-24">
+                            <a href="../index.html" class="homepage-link" title="Back to the frontpage">Գլխավոր</a>
+
+
+                            <span>/</span>
+                            <span class="page-title">Տեսականի</span>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <section class="content">
+                <div class="container">
+                    <div class="row">
+
+                        <div id="collection-content">
+                            <!-- Tags loading -->
+                            <div id="tags-load" style="display:none;"><i class="fa fa-spinner fa-pulse fa-2x"></i></div>
+
+                            <div id="page-header" class="col-sm-24">
+                                <h1 id="page-title">Տեսականի</h1>
+                            </div>
+
+
+                            <div class="collection-wrapper col-sm-24 clearfix">
+
+
+                                <div class="collection-panner">
+                                    <img src="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/collection_banner.jpg?1065742395697979892"
+                                         class="img-responsive" alt=""/>
+                                </div>
+
+
+                            </div>
+                            <div class="collection-main-content">
+
+                                <tiles:insertAttribute name="leftSideBar"/>
+                                <tiles:insertAttribute name="products"/>
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 </div>
-<section class="content">
-    <tiles:insertAttribute name="content"/>
-</section>
 <footer id="footer">
     <tiles:insertAttribute name="footer"/>
 </footer>

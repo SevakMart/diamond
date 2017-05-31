@@ -13,4 +13,9 @@ public class MainViewController {
     public String viewMainPage(){
         return "home.view";
     }
+
+    @RequestMapping(value = "/showAboutUs")
+    public String showAboutUsPage(){
+        return "aboutUs.view";
+    }
 }

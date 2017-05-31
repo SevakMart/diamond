@@ -14,7 +14,7 @@
 <title>Diamond Jewelery Salon</title>
 
 
-<meta property="og:image" content="//cdn.shopify.com/s/files/1/0908/7252/t/2/assets/logo.png?1065742395697979892"/>
+<meta property="og:image" content="staticresources/images/logo_small.png"/>
 
 
 <link href="https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"
@@ -48,13 +48,13 @@
 
 <link href="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/cs.global.css?1065742395697979892"
       rel="stylesheet" type="text/css" media="all"/>
-<link href="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/cs.style.css?1065742395697979892"
+<link href="staticresources/css/cs.style.css"
       rel="stylesheet" type="text/css" media="all"/>
 <link href="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/cs.media.3x.css?1065742395697979892"
       rel="stylesheet" type="text/css" media="all"/>
 
 
-<script src="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/jquery-1.9.1.min.js?1065742395697979892"
+<script src="staticresources/js/jquery-1.9.1.min.js"
         type="text/javascript"></script>
 <script src="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/jquery.imagesloaded.min.js?1065742395697979892"
         type="text/javascript"></script>
@@ -188,103 +188,4 @@ window._fbq.push(['track', '6016096938024', {'value': '0.00', 'currency': 'USD'}
 
 <script type="text/javascript" class="analytics">
 
-
-    (function () {
-        var customDocumentWrite = function (content) {
-            var jquery = null;
-
-            if (window.jQuery) {
-                jquery = window.jQuery;
-            } else if (window.Checkout && window.Checkout.$) {
-                jquery = window.Checkout.$;
-            }
-
-            if (jquery) {
-                jquery('body').append(content);
-            }
-        };
-
-        var trekkie = window.ShopifyAnalytics.lib = window.trekkie = window.trekkie || [];
-        if (trekkie.integrations) {
-            return;
-        }
-        trekkie.methods = [
-            'identify',
-            'page',
-            'ready',
-            'track',
-            'trackForm',
-            'trackLink'
-        ];
-        trekkie.factory = function (method) {
-            return function () {
-                var args = Array.prototype.slice.call(arguments);
-                args.unshift(method);
-                trekkie.push(args);
-                return trekkie;
-            };
-        };
-        for (var i = 0; i < trekkie.methods.length; i++) {
-            var key = trekkie.methods[i];
-            trekkie[key] = trekkie.factory(key);
-        }
-        trekkie.load = function (config) {
-            trekkie.config = config;
-            var script = document.createElement('script');
-            script.type = 'text/javascript';
-            script.onerror = function (e) {
-                (new Image()).src = '//v.shopify.com/internal_errors/track?error=trekkie_load';
-            };
-            script.async = true;
-            script.src = 'https://cdn.shopify.com/s/javascripts/tricorder/trekkie.storefront.min.js?v=2017.03.29.1';
-            var first = document.getElementsByTagName('script')[0];
-            first.parentNode.insertBefore(script, first);
-        };
-        trekkie.load(
-            {
-                "Trekkie": {
-                    "appName": "storefront",
-                    "development": false,
-                    "defaultAttributes": {"shopId": 9087252}
-                },
-                "Performance": {
-                    "navigationTimingApiMeasurementsEnabled": true,
-                    "navigationTimingApiMeasurementsSampleRate": 0.1
-                }
-            }
-        );
-
-        var loaded = false;
-        trekkie.ready(function () {
-            if (loaded) return;
-            loaded = true;
-
-            window.ShopifyAnalytics.lib = window.trekkie;
-
-
-            var originalDocumentWrite = document.write;
-            document.write = customDocumentWrite;
-            try {
-                window.ShopifyAnalytics.merchantGoogleAnalytics.call(this);
-            } catch (error) {
-            }
-            ;
-            document.write = originalDocumentWrite;
-
-
-            window.ShopifyAnalytics.lib.page(
-                null,
-                {"pageType": "home"}
-            );
-
-
-        });
-
-
-        var eventsListenerScript = document.createElement('script');
-        eventsListenerScript.async = true;
-        eventsListenerScript.src = "//cdn.shopify.com/s/assets/shop_events_listener-ac336e6042c0b3ecf23fc811af6e11b9af69994f8f440d84ac06f0ea21e9b84f.js";
-        document.getElementsByTagName('head')[0].appendChild(eventsListenerScript);
-
-    })();
 </script>

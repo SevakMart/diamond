@@ -20,6 +20,13 @@
         <put-attribute name="footer" value="/WEB-INF/pages/footer.jsp"/>
     </definition>
 
+    <definition name="productsLayout.view" template="/WEB-INF/pages/layouts/products_layout.jsp">
+        <put-attribute name="import" value="/WEB-INF/pages/import.jsp"/>
+        <put-attribute name="header" value="/WEB-INF/pages/header.jsp"/>
+        <put-attribute name="leftSideBar" value="/WEB-INF/pages/left-sidebar.jsp"/>
+        <put-attribute name="footer" value="/WEB-INF/pages/footer.jsp"/>
+    </definition>
+
     <!--pages-->
     <definition name="home.view" extends="main.view">
         <put-attribute name="title" value="Diamond Home Page"/>
@@ -35,6 +42,22 @@
         <put-attribute name="title" value="Contact Us"/>
         <put-attribute name="content" value="/WEB-INF/pages/contact-us.jsp"/>
     </definition>
+
+    <definition name="blog.view" extends="secondary.view">
+        <put-attribute name="title" value="Diamond Blog"/>
+        <put-attribute name="content" value="/WEB-INF/pages/blog.jsp"/>
+    </definition>
+
+    <definition name="aboutUs.view" extends="secondary.view">
+        <put-attribute name="title" value="About us"/>
+        <put-attribute name="content" value="/WEB-INF/pages/about-us.jsp"/>
+    </definition>
+
+    <definition name="products.view" extends="productsLayout.view">
+        <put-attribute name="title" value="Products"/>
+        <put-attribute name="products" value="/WEB-INF/pages/products.jsp"/>
+    </definition>
+
 
 
 </tiles-definitions>
