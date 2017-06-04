@@ -7,6 +7,7 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.Set;
 
 /**
@@ -19,6 +20,7 @@ public class UserDaoImpl implements UserDao {
     @Autowired
     private SessionFactory sessionFactory;
 
+    @Transactional
     public void create(User entity) {
         Session session = sessionFactory.getCurrentSession();
         session.save(entity);
@@ -41,6 +43,7 @@ public class UserDaoImpl implements UserDao {
         return null;
     }
 
+    @Transactional
     @Override
     public User getUserByEmailAndPassword(String email, String password) {
         Session session = sessionFactory.getCurrentSession();

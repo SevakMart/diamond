@@ -16,13 +16,6 @@
 <header id="top" class="fadeInDown clearfix">
     <tiles:insertAttribute name="header"/>
 </header>
-<div id="content-wrapper-parent">
-    <div id="content-wrapper">
-        <div class="home-slider-wrapper clearfix">
-            <tiles:insertAttribute name="slider"/>
-        </div>
-    </div>
-</div>
 <section class="content">
     <tiles:insertAttribute name="content"/>
 </section>

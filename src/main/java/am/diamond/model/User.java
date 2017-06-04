@@ -1,8 +1,12 @@
 package am.diamond.model;
 
 import am.diamond.model.usertype.UserType;
+import org.hibernate.validator.constraints.Email;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.Set;
 
 /**
@@ -16,17 +20,23 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @NotNull
+    @Size(min = 2,max = 16, message = "user name size must be between 2 and 16")
     @Column(name = "username")
     private String userName;
 
-    @Column(name = "email")
+    @NotNull
+    @Size(min = 2,message = "please enter valid email")
+    @Column(name = "email", unique = true)
     private String email;
 
+    @NotNull
+    @Size(min = 5,max = 16, message = "password must be between 5 and 16")
     @Column(name = "password")
     private String password;
 
     @Enumerated(EnumType.STRING)
-    private UserType userType;
+    private UserType user_type;
 
     @OneToMany(mappedBy = "user",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Order> orders;
@@ -46,8 +56,8 @@ public class User {
         return userName;
     }
 
-    public void setUserName(String usenName) {
-        this.userName = usenName;
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public String getEmail() {
@@ -66,12 +76,12 @@ public class User {
         this.password = password;
     }
 
-    public UserType getUserType() {
-        return userType;
+    public UserType getUser_type() {
+        return user_type;
     }
 
-    public void setUserType(UserType userType) {
-        this.userType = userType;
+    public void setUser_type(UserType userType) {
+        this.user_type = userType;
     }
 
     public Set<Order> getOrders() {
@@ -98,7 +108,7 @@ public class User {
         result = 31 * result + (userName != null ? userName.hashCode() : 0);
         result = 31 * result + (email != null ? email.hashCode() : 0);
         result = 31 * result + (password != null ? password.hashCode() : 0);
-        result = 31 * result + (userType != null ? userType.hashCode() : 0);
+        result = 31 * result + (user_type != null ? user_type.hashCode() : 0);
         return result;
     }
 
@@ -109,7 +119,7 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", userType=" + userType +
+                ", userType=" + user_type +
                 '}';
     }
 

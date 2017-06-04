@@ -1,4 +1,5 @@
 <%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: sevak
@@ -18,54 +19,77 @@
                 <li class="customer-links hidden-xs">
                     <ul id="accounts" class="list-inline">
                         <li class="my-account">
-                            <a href="#">Իմ էջը</a>
+                            <c:choose>
+                                <c:when test="${errMessage!=null}">
+                                    <span style="color: red">${errMessage}</span>
+                                </c:when>
+                                <c:when test="${sessionScope.user!=null}">
+                                    <span>Welcome ${sessionScope.user.userName}</span>
+                                </c:when>
+
+                                <c:otherwise>
+                                    Welcome to Diamond
+                                </c:otherwise>
+                            </c:choose>
+
                         </li>
-                        <li class="login">
-    <span id="loginButton" class="dropdown-toggle" data-toggle="dropdown">
-      Մուտք
+                        <c:choose>
+                            <c:when test="${sessionScope.user==null}">
+                                <li class="login">  <span id="loginButton" class="dropdown-toggle"
+                                                          data-toggle="dropdown">Մուտք
       <i class="sub-dropdown1"></i>
       <i class="sub-dropdown"></i>
     </span>
-                            <!-- Customer Account Login -->
-                            <div id="loginBox" class="dropdown-menu text-left">
-                                <form method="post" action="/login"
-                                      id="customer_login" accept-charset="UTF-8"><input type="hidden"
-                                                                                        value="customer_login"
-                                                                                        name="form_type"/><input
-                                        type="hidden" name="utf8" value="✓"/>
-                                    <div id="bodyBox">
-                                        <ul class="control-container customer-accounts list-unstyled">
-                                            <li class="clearfix">
-                                                <label for="customer_email_box" class="control-label">Էլ-փոստ <span
-                                                        class="req">*</span></label>
-                                                <input type="email" value="" name="email"
-                                                       id="customer_email_box" class="form-control"/>
-                                            </li>
+                                    <!-- Customer Account Login -->
+                                    <div id="loginBox" class="dropdown-menu text-left">
+                                        <form method="post" action="/login"
+                                              id="customer_login" accept-charset="UTF-8"><input type="hidden"
+                                                                                                value="customer_login"
+                                                                                                name="form_type"/><input
+                                                type="hidden" name="utf8" value="✓"/>
+                                            <div id="bodyBox">
+                                                <ul class="control-container customer-accounts list-unstyled">
+                                                    <li class="clearfix">
+                                                        <label for="customer_email_box" class="control-label">Էլ-փոստ
+                                                            <span
+                                                                    class="req">*</span></label>
+                                                        <input type="email" value="" name="email"
+                                                               id="customer_email_box" class="form-control"/>
+                                                    </li>
 
-                                            <li class="clearfix">
-                                                <label for="customer_password_box" class="control-label">Գաղտնաբառ
-                                                    <span class="req">*</span></label>
-                                                <input type="password" value="" name="password"
-                                                       id="customer_password_box" class="form-control password"/>
-                                            </li>
+                                                    <li class="clearfix">
+                                                        <label for="customer_password_box" class="control-label">Գաղտնաբառ
+                                                            <span class="req">*</span></label>
+                                                        <input type="password" value="" name="password"
+                                                               id="customer_password_box"
+                                                               class="form-control password"/>
+                                                    </li>
 
-                                            <li class="clearfix">
-                                                <button class="btn" type="submit" >login</button>
-                                            </li>
-                                            <li class="clearfix">
-                                                <a class="action btn btn-1" href="/showRegister">Ստեղծել նոր էջ</a>
-                                            </li>
-                                        </ul>
+                                                    <li class="clearfix">
+                                                        <button class="btn" type="submit">login</button>
+                                                    </li>
+                                                    <li class="clearfix">
+                                                        <a class="action btn btn-1" href="/showRegister">Ստեղծել նոր
+                                                            էջ</a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </form>
                                     </div>
-                                </form>
-                            </div>
-                        </li>
-                        <li>/</li>
-                        <li class="register">
-                            <a href="/showRegister" id="customer_register_link" id="customer_register_link">Ստեղծել նոր էջ</a>
-                        </li>
-
-
+                                </li>
+                                <li>/</li>
+                                <li class="register">
+                                    <a href="/showRegister" id="customer_register_link" id="customer_register_link">Ստեղծել
+                                        նոր
+                                        էջ</a>
+                                </li>
+                            </c:when>
+                            <c:otherwise>
+                                <li class="register">
+                                    <a href="/logout" id="customer_logout_link" id="customer_logout_link">logout</a>
+                                </li>
+                            </c:otherwise>
+                        </c:choose>
                     </ul>
                 </li>
                 <li class="li-currency">
@@ -85,15 +109,17 @@
                                 <ul class="currencies dropdown-menu text-left">
 
                                     <li class="currency-EUR">
-                                        <a href="javascript:"><a href="#"><img src="staticresources/images/arm_flag.gif" class="flags"
+                                        <a href="javascript:"><a href="#"><img src="staticresources/images/arm_flag.gif"
+                                                                               class="flags"
                                                                                style="width:20px; height: 15px"></a></a>
                                         <input type="hidden" value="EUR"/>
                                     </li>
 
                                     <li class="currency-GBP">
-                                        <a href="javascript:"><a href="#"><img src="staticresources/images/russian_flag.jpg"
-                                                                               class="flags"
-                                                                               style="width:20px; height: 15px"></a></a>
+                                        <a href="javascript:"><a href="#"><img
+                                                src="staticresources/images/russian_flag.jpg"
+                                                class="flags"
+                                                style="width:20px; height: 15px"></a></a>
                                         <input type="hidden" value="GBP"/>
                                     </li>
                                     <li class="currency-USD active">
@@ -236,7 +262,8 @@
 
 
                                 <li class="dropdown mega-menu">
-                                    <a href="/getAllProducts" class="dropdown-toggle dropdown-link" data-toggle="dropdown">
+                                    <a href="/getAllProducts" class="dropdown-toggle dropdown-link"
+                                       data-toggle="dropdown">
                                         <span>Տեսականի</span>
 
                                         <i class="fa fa-caret-down"></i>
@@ -255,7 +282,7 @@
                                                     <li class="list-title">Կանանց համար</li>
 
                                                     <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-collection-with-left-slidebar.html">Մատանիներ
+                                                        <a href="/products/rings/">Մատանիներ
 
 
                                                         </a>
@@ -496,8 +523,6 @@
                                                     <li class="list-unstyled li-sub-mega">
                                                         <a href="sample-blog-full-width.html">Ցանկացած զարդի
                                                             պատրաստում
-
-
                                                         </a>
                                                     </li>
 

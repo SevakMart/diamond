@@ -10,7 +10,6 @@
     <definition name="main.view" template="/WEB-INF/pages/layouts/main_layout.jsp">
         <put-attribute name="import" value="/WEB-INF/pages/import.jsp"/>
         <put-attribute name="header" value="/WEB-INF/pages/header.jsp"/>
-        <put-attribute name="slider" value="/WEB-INF/pages/slider.jsp"/>
         <put-attribute name="footer" value="/WEB-INF/pages/footer.jsp"/>
     </definition>
 

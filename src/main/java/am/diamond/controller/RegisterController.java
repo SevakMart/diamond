@@ -3,11 +3,16 @@ package am.diamond.controller;
 import am.diamond.model.User;
 import am.diamond.model.usertype.UserType;
 import am.diamond.service.userdao.UserService;
+import am.diamond.service.userdao.UserServiceImpl;
+import am.diamond.utils.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.validation.Valid;
 
 /**
  * Created by sevak on 5/20/17.
@@ -16,27 +21,25 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class RegisterController {
 
     @Autowired
-    UserService userService;
+    private UserService userService ;
+
+    @Autowired
+    private Validator validator;
 
     @RequestMapping(value = "/showRegister")
-    public String showRegisterPage(){
+    public String showRegisterPage() {
         return "register.view";
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
-    public String register(@RequestParam("userName") String userName,
-                           @RequestParam("email") String email,
-                           @RequestParam("password") String password,
-                           @RequestParam("userType") String userType) {
+    public String register(@Valid User user, BindingResult bindingResult) {
 
-        User user = new User();
-        user.setEmail(email);
-        user.setUserName(userName);
-        user.setPassword(password);
-        user.setUserType(UserType.valueOf(userType));
-
-        userService.create(user);
-        return "home.view";
+        if (!bindingResult.hasErrors()) {
+            user.setUser_type(UserType.USER);
+            userService.create(user);
+            return "home.view";
+        }else
+        return "register.view";
     }
 
 

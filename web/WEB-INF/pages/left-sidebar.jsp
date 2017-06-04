@@ -18,86 +18,11 @@
                 <h6 class="sb-title">Տեսակավորել</h6>
 
 
-                <%--<!-- tags groupd 1 -->--%>
-
-                <%--<div class="tag-group" id="coll-filter-1">--%>
-
-
-                    <%--<p class="title"> Մատանիների չափսեր</p>--%>
-                    <%--<ul>--%>
-
-
-                        <%--<li><a href="#"--%>
-                               <%--title="Narrow selection to products matching tag S"><span--%>
-                                <%--class="fe-checkbox"></span> 16</a></li>--%>
-
-
-                        <%--<li><a href="#"--%>
-                               <%--title="Narrow selection to products matching tag M"><span--%>
-                                <%--class="fe-checkbox"></span> 17</a></li>--%>
-
-
-                        <%--<li><a href="#"--%>
-                               <%--title="Narrow selection to products matching tag L"><span--%>
-                                <%--class="fe-checkbox"></span> 18</a></li>--%>
-
-
-                        <%--<li><a href="#"--%>
-                               <%--title="Narrow selection to products matching tag XL"><span--%>
-                                <%--class="fe-checkbox"></span> 19</a></li>--%>
-
-
-                        <%--<li><a href="#"--%>
-                               <%--title="Narrow selection to products matching tag XL"><span--%>
-                                <%--class="fe-checkbox"></span> 20</a></li>--%>
-
-
-                    <%--</ul>--%>
-                    <%--<ul>--%>
-                        <%--<button style="--%>
-    <%--border: none;--%>
-    <%--color: white;--%>
-    <%--padding: 14px 28px;--%>
-    <%--cursor: pointer;--%>
-    <%--background-color: #e7e7e7; color: black;--%>
-
-  <%--">Մատանիների չափսեր--%>
-                        <%--</button>--%>
-                    <%--</ul>--%>
-                <%--</div>--%>
-
-
                 <!-- tags groupd 2 -->
 
-                <div class="tag-group" id="coll-filter-2">
-
-
-                    <p class="title">Զարդի գույնը</p>
-                    <ul>
-
-
-                        <li class=""><a href="#"
-                                        title="Narrow selection to products matching tag Red">Կարմիր
-                            ոսկի</a></li>
-                        <br>
-
-
-                        <li class=""><a href="#"
-                                        title="Narrow selection to products matching tag Green">Սպիտակ
-                            ոսկի </a></li>
-                        <br>
-
-
-                        <li class=""><a href="#"
-                                        title="Narrow selection to products matching tag Black">Դեղին
-                            ոսկի </a></li>
-
-
-                    </ul>
-                </div>
 
                 <div class="sb-wrapper left-sample-block">
-                    <h6 class="sb-title">Ոսկու հարկը</h6>
+                    <h6 class="sb-title">Մետաղի տեսակը</h6>
                     <ul class="list-unstyled sb-content list-styled">
 
                         <li>
