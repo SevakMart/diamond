@@ -5,6 +5,7 @@ import am.diamond.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -39,5 +40,15 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Set<Product> getAll() {
         return null;
+    }
+
+    @Override
+    public List<Product> getPaginatedList(Integer offset, Integer maxResult) {
+        return productDao.getPaginatedList(offset, maxResult);
+    }
+
+    @Override
+    public Long count() {
+        return productDao.count();
     }
 }

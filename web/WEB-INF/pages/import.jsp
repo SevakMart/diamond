@@ -1,7 +1,11 @@
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"%>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <meta charset="UTF-8">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1"/>
-<link rel="canonical" href="index.html"/>
 <link href='https://fonts.googleapis.com/css?family=Carrois+Gothic' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Lato:100,300,400,700' rel='stylesheet' type='text/css'>
 <link href='https://fonts.googleapis.com/css?family=Raleway:400,600,500,700' rel='stylesheet' type='text/css'>
@@ -9,9 +13,6 @@
 <link href='https://fonts.googleapis.com/css?family=Quicksand:300,400,700' rel='stylesheet' type='text/css'>
 
 <meta name="description" content=""/>
-
-
-<title>Diamond Jewelery Salon</title>
 
 
 <meta property="og:image" content="staticresources/images/logo_small.png"/>
@@ -46,15 +47,15 @@
 <link href="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/cs.bootstrap.3x.css?1065742395697979892"
       rel="stylesheet" type="text/css" media="all"/>
 
-<link href="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/cs.global.css?1065742395697979892"
+<link href="<c:url value="/css/cs.global.css" />"
       rel="stylesheet" type="text/css" media="all"/>
-<link href="staticresources/css/cs.style.css"
+<link href="<c:url value="/css/cs.style.css" />"
       rel="stylesheet" type="text/css" media="all"/>
 <link href="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/cs.media.3x.css?1065742395697979892"
       rel="stylesheet" type="text/css" media="all"/>
 
 
-<script src="staticresources/js/jquery-1.9.1.min.js"
+<script src="<c:url value="/js/jquery-1.9.1.min.js"/>"
         type="text/javascript"></script>
 <script src="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/jquery.imagesloaded.min.js?1065742395697979892"
         type="text/javascript"></script>

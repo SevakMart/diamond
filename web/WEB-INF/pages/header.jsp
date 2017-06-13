@@ -1,5 +1,6 @@
 <%@ taglib prefix="C" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: sevak
@@ -12,7 +13,7 @@
 <div class="container">
     <div class="top row">
         <div class="col-md-6 phone-shopping">
-            <span>Հեռախոս՝ +37494852856</span>
+            <span><spring:message code="tel"/>՝ +37494852856</span>
         </div>
         <div class="col-md-18">
             <ul class="text-right">
@@ -28,7 +29,7 @@
                                 </c:when>
 
                                 <c:otherwise>
-                                    Welcome to Diamond
+                                    <spring:message code="welcome"/>
                                 </c:otherwise>
                             </c:choose>
 
@@ -36,7 +37,7 @@
                         <c:choose>
                             <c:when test="${sessionScope.user==null}">
                                 <li class="login">  <span id="loginButton" class="dropdown-toggle"
-                                                          data-toggle="dropdown">Մուտք
+                                                          data-toggle="dropdown"><spring:message code="login"/>
       <i class="sub-dropdown1"></i>
       <i class="sub-dropdown"></i>
     </span>
@@ -50,7 +51,8 @@
                                             <div id="bodyBox">
                                                 <ul class="control-container customer-accounts list-unstyled">
                                                     <li class="clearfix">
-                                                        <label for="customer_email_box" class="control-label">Էլ-փոստ
+                                                        <label for="customer_email_box"
+                                                               class="control-label"><spring:message code="email"/>
                                                             <span
                                                                     class="req">*</span></label>
                                                         <input type="email" value="" name="email"
@@ -58,7 +60,8 @@
                                                     </li>
 
                                                     <li class="clearfix">
-                                                        <label for="customer_password_box" class="control-label">Գաղտնաբառ
+                                                        <label for="customer_password_box"
+                                                               class="control-label"><spring:message code="password"/>
                                                             <span class="req">*</span></label>
                                                         <input type="password" value="" name="password"
                                                                id="customer_password_box"
@@ -66,11 +69,12 @@
                                                     </li>
 
                                                     <li class="clearfix">
-                                                        <button class="btn" type="submit">login</button>
+                                                        <button class="btn" type="submit"><spring:message
+                                                                code="login"/></button>
                                                     </li>
                                                     <li class="clearfix">
-                                                        <a class="action btn btn-1" href="/showRegister">Ստեղծել նոր
-                                                            էջ</a>
+                                                        <a class="action btn btn-1" href="/showRegister"><spring:message
+                                                                code="register"/> </a>
                                                     </li>
                                                 </ul>
                                             </div>
@@ -79,14 +83,14 @@
                                 </li>
                                 <li>/</li>
                                 <li class="register">
-                                    <a href="/showRegister" id="customer_register_link" id="customer_register_link">Ստեղծել
-                                        նոր
-                                        էջ</a>
+                                    <a href="/showRegister" id="customer_register_link"
+                                       id="customer_register_link"><spring:message code="register"/></a>
                                 </li>
                             </c:when>
                             <c:otherwise>
                                 <li class="register">
-                                    <a href="/logout" id="customer_logout_link" id="customer_logout_link">logout</a>
+                                    <a href="/logout" id="customer_logout_link"
+                                       id="customer_logout_link"><spring:message code="logout"/></a>
                                 </li>
                             </c:otherwise>
                         </c:choose>
@@ -102,28 +106,29 @@
                                     <i class="sub-dropdown1"></i>
                                     <i class="sub-dropdown"></i>
 
-                                    <span class="heading hidden-xs">Լեզուներ</span>
+                                    <span class="heading hidden-xs"><spring:message code="languages"/> </span>
                                     <span class="currency_code visible-xs">Հայերեն</span>
                                     <i class="fa fa-caret-down"></i>
                                 </a>
                                 <ul class="currencies dropdown-menu text-left">
 
                                     <li class="currency-EUR">
-                                        <a href="javascript:"><a href="#"><img src="staticresources/images/arm_flag.gif"
-                                                                               class="flags"
-                                                                               style="width:20px; height: 15px"></a></a>
+                                        <a href="javascript:"><a href="?languageVar=hy"><img
+                                                src="staticresources/images/arm_flag.gif"
+                                                class="flags"
+                                                style="width:20px; height: 15px"></a></a>
                                         <input type="hidden" value="EUR"/>
                                     </li>
 
                                     <li class="currency-GBP">
-                                        <a href="javascript:"><a href="#"><img
+                                        <a href="javascript:"><a href="?languageVar=ru"><img
                                                 src="staticresources/images/russian_flag.jpg"
                                                 class="flags"
                                                 style="width:20px; height: 15px"></a></a>
                                         <input type="hidden" value="GBP"/>
                                     </li>
                                     <li class="currency-USD active">
-                                        <a href="javascript:;"> <a href="#"><img
+                                        <a href="javascript:;"> <a href="?languageVar=en"><img
                                                 src="staticresources/images/us_flag.png" class="flags"
                                                 style="width:20px; height: 15px"></a></a>
                                         <input type="hidden" value="USD"/>
@@ -188,7 +193,7 @@
         <ul class="list-inline">
             <li class="top-logo" style="width: auto">
                 <a id="site-title" href="/viewMain" title="Diamond">
-                    <img src="staticresources/images/logo-diamond.png" style="width: 100px; height: 80px"/>
+                    <img src="<c:url value="/images/logo-diamond.png"/>" style="width: 100px; height: 80px"/>
                 </a>
 
             </li>
@@ -262,7 +267,8 @@
 
 
                                 <li class="dropdown mega-menu">
-                                    <a href="/getAllProducts" class="dropdown-toggle dropdown-link"
+                                    <a href="/products/getAllProducts?offset=0&maxResult=9"
+                                       class="dropdown-toggle dropdown-link"
                                        data-toggle="dropdown">
                                         <span>Տեսականի</span>
 
@@ -280,64 +286,14 @@
 
                                                 <ul>
                                                     <li class="list-title">Կանանց համար</li>
+                                                    <c:forEach items="${applicationScope.womensCategories}"
+                                                               var="womenCategory">
+                                                        <li class="list-unstyled li-sub-mega">
+                                                            <a href="/products/rings/">${womenCategory.categoryName}
+                                                            </a>
+                                                        </li>
+                                                    </c:forEach>
 
-                                                    <li class="list-unstyled li-sub-mega">
-                                                        <a href="/products/rings/">Մատանիներ
-
-
-                                                        </a>
-                                                    </li>
-
-                                                    <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-collection-with-left-slidebar.html">Վզնոցներ
-
-
-                                                        </a>
-                                                    </li>
-                                                    <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-collection-with-left-slidebar.html">Շղթաներ
-
-
-                                                        </a>
-                                                    </li>
-
-                                                    <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-collection-with-left-slidebar.html">Ականջօղեր
-
-
-                                                            <span class="megamenu-label hot-label">Նոր</span>
-
-
-                                                        </a>
-                                                    </li>
-                                                    <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-collection-with-left-slidebar.html">Կախազարդեր
-
-
-                                                        </a>
-                                                    </li>
-
-                                                    <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-collection-with-left-slidebar.html">Թեվնոցներ
-
-
-                                                        </a>
-                                                    </li>
-                                                    <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-collection-with-left-slidebar.html">ժամացույցներ
-
-
-                                                            <span class="megamenu-label hot-label">Նոր</span>
-
-
-                                                        </a>
-                                                    </li>
-                                                    <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-collection-with-left-slidebar.html">Հավաքածուներ
-
-
-                                                        </a>
-                                                    </li>
 
                                                 </ul>
                                             </li>
@@ -349,79 +305,31 @@
 
 
                                                     <li class="list-title">Տղամարդկանց համար</li>
+                                                    <c:forEach items="${applicationScope.mensCategories}"
+                                                               var="menCategory">
+                                                        <li class="list-unstyled li-sub-mega">
+                                                            <a href="sample-collection-with-left-slidebar.html">${menCategory.categoryName}
 
-                                                    <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-collection-with-left-slidebar.html">Մատանիներ
-
-                                                            <span class="megamenu-label new-label">Նոր</span>
-
-
-                                                        </a>
-                                                    </li>
-
-                                                    <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-collection-with-left-slidebar.html">Շղթաներ
+                                                                    <%--<span class="megamenu-label new-label">Նոր</span>--%>
 
 
-                                                        </a>
-                                                    </li>
-
-                                                    <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-collection-with-left-slidebar.html">Ժամացույցներ
-
-
-                                                        </a>
-                                                    </li>
-                                                    <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-collection-with-left-slidebar.html">
-                                                            Ճարմանդներ
-
-
-                                                        </a>
-                                                    </li>
-                                                    <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-collection-with-left-slidebar.html"> Փախկապի
-                                                            Ճարմանդներ
-
-
-                                                        </a>
-                                                    </li>
-
+                                                            </a>
+                                                        </li>
+                                                    </c:forEach>
 
                                                 </ul>
                                             </li>
-                                            <ul>
-                                                <li class="list-title">Այլ</li>
-
-                                                <li class="list-unstyled li-sub-mega">
-                                                    <a href="sample-collection-with-left-slidebar.html">Ադամանդյա
-                                                        քարեր
-
-
-                                                    </a>
-                                                </li>
-
-                                                <li class="list-unstyled li-sub-mega">
-                                                    <a href="sample-collection-with-left-slidebar.html">Ոսկյա
-                                                        ձուլակտորներ
-
-
-                                                    </a>
-                                                </li>
-
-                                                <li class="list-unstyled li-sub-mega">
-                                                    <a href="sample-collection-with-left-slidebar.html">Ոսկյա
-                                                        մետաղադրամներ
-
-
-                                                        <span class="megamenu-label hot-label">Նոր</span>
-
-
-                                                    </a>
-                                                </li>
-                                            </ul>
-
-
+                                            <li>
+                                                <ul>
+                                                    <li class="list-title">Այլ</li>
+                                                    <c:forEach items="${applicationScope.otherCategories}"
+                                                               var="otherCategory">
+                                                        <li class="list-unstyled li-sub-mega">
+                                                            <a href="sample-collection-with-left-slidebar.html">${otherCategory.categoryName}
+                                                            </a>
+                                                        </li>
+                                                    </c:forEach>
+                                                </ul>
                                             </li>
 
                                             <li>

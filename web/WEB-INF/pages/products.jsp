@@ -69,7 +69,7 @@
     <div id="sandBox-wrapper" class="group-product-item row collection-full">
         <ul id="sandBox" class="list-unstyled">
 
-            <li class="element first no_full_width" data-alpha="Curabitur cursus dignis"
+            <li class="element  no_full_width" data-alpha="Curabitur cursus dignis"
                 data-price="20000">
                 <ul class="row-container list-unstyled clearfix">
                     <li class="row-left">
@@ -407,7 +407,7 @@
 
             </li>
 
-            <li class="element first no_full_width"
+            <li class="element  no_full_width"
                 data-alpha="Gravida est quis euismod" data-price="20000">
                 <ul class="row-container list-unstyled clearfix">
                     <li class="row-left">
@@ -772,7 +772,7 @@
 
             </li>
 
-            <li class="element first no_full_width" data-alpha="Product full width"
+            <li class="element  no_full_width" data-alpha="Product full width"
                 data-price="20000">
                 <ul class="row-container list-unstyled clearfix">
                     <li class="row-left">

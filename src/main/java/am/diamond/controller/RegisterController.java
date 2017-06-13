@@ -3,7 +3,6 @@ package am.diamond.controller;
 import am.diamond.model.User;
 import am.diamond.model.usertype.UserType;
 import am.diamond.service.userdao.UserService;
-import am.diamond.service.userdao.UserServiceImpl;
 import am.diamond.utils.Validator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

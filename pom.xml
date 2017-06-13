@@ -13,8 +13,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>1.6</source>
-                    <target>1.6</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
         </plugins>
@@ -81,11 +81,26 @@
             <version>${org.springframework-version}</version>
         </dependency>
 
+        <!--Contains org.springframework.mail.javamail-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context-support</artifactId>
+            <version>${org.springframework-version}</version>
+        </dependency>
+
+
+        <!-- Spring MVC Mail Related Dependency -->
         <dependency>
             <groupId>javax.mail</groupId>
             <artifactId>mail</artifactId>
-            <version>1.4.3</version>
+            <version>1.4.7</version>
         </dependency>
+        <dependency>
+            <groupId>org.apache.velocity</groupId>
+            <artifactId>velocity</artifactId>
+            <version>1.7</version>
+        </dependency>
+
 
         <!-- Hibernate -->
         <dependency>
@@ -103,6 +118,18 @@
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-c3p0</artifactId>
             <version>${hibernate.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+            <version>1.1.0.Final</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>${hibernate-validator.version}</version>
         </dependency>
 
         <!-- Apache Commons DBCP -->
@@ -190,22 +217,6 @@
         </dependency>
 
 
-        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.webjars/bootstrap &ndash;&gt;-->
-        <!--<dependency>-->
-        <!--<groupId>org.webjars</groupId>-->
-        <!--<artifactId>bootstrap</artifactId>-->
-        <!--<version>3.3.5</version>-->
-        <!--</dependency>-->
-
-
-        <!--&lt;!&ndash; https://mvnrepository.com/artifact/org.webjars.bower/jquery &ndash;&gt;-->
-        <!--<dependency>-->
-        <!--<groupId>org.webjars.bower</groupId>-->
-        <!--<artifactId>jquery</artifactId>-->
-        <!--<version>3.1.1</version>-->
-        <!--</dependency>-->
-
-
         <dependency>
             <groupId>org.apache.tiles</groupId>
             <artifactId>tiles-extras</artifactId>
@@ -241,17 +252,7 @@
             <version>${tiles.version}</version>
         </dependency>
 
-        <dependency>
-            <groupId>javax.validation</groupId>
-            <artifactId>validation-api</artifactId>
-            <version>1.1.0.Final</version>
-        </dependency>
 
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>hibernate-validator</artifactId>
-            <version>${hibernate-validator.version}</version>
-        </dependency>
 
     </dependencies>
 </project>

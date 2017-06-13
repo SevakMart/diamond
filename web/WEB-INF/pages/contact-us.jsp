@@ -1,3 +1,5 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: sevak
@@ -42,33 +44,39 @@
                     <div class="row">
 
                         <div class="left-block col-md-12">
-                            <form method="post" action="" id="contact_form" class="contact-form" accept-charset="UTF-8"><input type="hidden" value="contact" name="form_type" /><input type="hidden" name="utf8" value="✓" />
-
-
-
+                                <h3><spring:message code="sendEmail"/> </h3>
+                            <form method="post" action="/send" id="contact_form" class="contact-form" accept-charset="UTF-8">
 
 
                                 <ul id="contact-form" class="row list-unstyled">
+                                    <spring:hasBindErrors name="emailModel">
+                                        <c:forEach var="error" items="${errors.allErrors}">
+                                            <span style="color: red"><spring:message message="${error}" /></span>
+                                            <br />
+                                        </c:forEach>
+                                    </spring:hasBindErrors>
                                     <li class="">
-                                        <h3>Ուղղարկեք մեզ նամակ</h3>
-                                    </li>
-                                    <li class="">
-                                        <label class="control-label" for="name">Անուն</label>
-                                        <input type="text" id="name" value="" class="form-control" name="contact[name]" />
-                                    </li>
-                                    <li class="clearfix"></li>
-                                    <li class="">
-                                        <label class="control-label" for="email">էլ-փոստ <span class="req">*</span></label>
-                                        <input type="email" id="email" value="" class="form-control email" name="contact[email]" />
+                                        <label class="control-label" for="senderName"><spring:message code="userName"/> <span class="req">*</span> </label>
+                                        <input type="text" id="senderName" value="${sessionScope.user.userName}" class="form-control" name="senderName" />
                                     </li>
                                     <li class="clearfix"></li>
                                     <li class="">
-                                        <label class="control-label" for="message">Նամակ <span class="req">*</span></label>
-                                        <textarea id="message" rows="5" class="form-control" name="contact[body]"></textarea>
+                                        <label class="control-label" for="subject"><spring:message code="messSubject"/> <span class="req">*</span> </label>
+                                        <input type="text" id="subject" value="" class="form-control" name="subject" />
+                                    </li>
+                                    <li class="clearfix"></li>
+                                    <li class="">
+                                        <label class="control-label" for="senderEmail"><spring:message code="email"/> <span class="req">*</span></label>
+                                        <input type="email" id="senderEmail" value="${sessionScope.user.email}" class="form-control email" name="senderEmail" />
+                                    </li>
+                                    <li class="clearfix"></li>
+                                    <li class="">
+                                        <label class="control-label" for="message"><spring:message code="messText"/> <span class="req">*</span></label>
+                                        <textarea id="message" rows="5" class="form-control" name="message"></textarea>
                                     </li>
                                     <li class="clearfix"></li>
                                     <li class="unpadding-top">
-                                        <button type="submit" class="btn">Ուղղարկել</button>
+                                        <button type="submit" class="btn"><spring:message code="send"/></button>
                                     </li>
                                 </ul>
                             </form>
@@ -81,10 +89,10 @@
 
                             <ul class="right-content">
                                 <li class="title">
-                                    <h6>Հասցե</h6>
+                                    <h6><spring:message code="address"/> </h6>
                                 </li>
                                 <li class="address">
-                                    <p>Հայաստան, ք. Գյումրի, Գորկու 68/4</p>
+                                    <p><spring:message code="locAddress"/> </p>
                                 </li><br>
                                 <li class="phone">+374 312 41681</li><br>
                                 <li class="email"><i class="fa fa-envelope"></i> support@designshopify.com</li>
