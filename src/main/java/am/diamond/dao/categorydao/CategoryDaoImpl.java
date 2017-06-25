@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -47,9 +48,11 @@ public class CategoryDaoImpl implements CategoryDao {
 
     @Override
     @Transactional
-    public List<Category> getCategoriesByParentId(Long parentId) {
+    public Set<Category> getCategoriesByParentId(Long parentId) {
         Session session = sessionFactory.getCurrentSession();
         List<Category> list = session.createCriteria(Category.class).add(Restrictions.eq("parentId", parentId)).list();
-        return list;
+        Set<Category> categories = new HashSet<>(list);
+        System.out.println(categories);
+        return categories;
     }
 }

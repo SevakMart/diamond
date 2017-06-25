@@ -15,12 +15,18 @@ public class Category {
     private Long id;
 
     @Column(name = "category_name")
-    private String categoryName;
+    private String categoryName_en;
+
+    @Column(name = "category_name_hy")
+    private String categoryName_hy;
+
+    @Column(name = "category_name_ru")
+    private String categoryName_ru;
 
     @Column(name = "parent_id")
     private Long parentId;
 
-    @OneToMany(mappedBy = "category",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Product> products;
 
     public Long getId() {
@@ -31,12 +37,12 @@ public class Category {
         this.id = id;
     }
 
-    public String getCategoryName() {
-        return categoryName;
+    public String getCategoryName_en() {
+        return categoryName_en;
     }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
+    public void setCategoryName_en(String categoryName) {
+        this.categoryName_en = categoryName;
     }
 
     public Long getParentId() {
@@ -51,7 +57,7 @@ public class Category {
     public String toString() {
         return "Category{" +
                 "id=" + id +
-                ", categoryName='" + categoryName + '\'' +
+                ", categoryName='" + categoryName_en + '\'' +
                 ", parentId=" + parentId +
                 '}';
     }
@@ -62,5 +68,21 @@ public class Category {
 
     public void setProducts(Set<Product> products) {
         this.products = products;
+    }
+
+    public String getCategoryName_hy() {
+        return categoryName_hy;
+    }
+
+    public void setCategoryName_hy(String categoryName_hy) {
+        this.categoryName_hy = categoryName_hy;
+    }
+
+    public String getCategoryName_ru() {
+        return categoryName_ru;
+    }
+
+    public void setCategoryName_ru(String categoryName_ru) {
+        this.categoryName_ru = categoryName_ru;
     }
 }

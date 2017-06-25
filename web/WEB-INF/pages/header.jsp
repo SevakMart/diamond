@@ -113,42 +113,28 @@
                                 <ul class="currencies dropdown-menu text-left">
 
                                     <li class="currency-EUR">
-                                        <a href="javascript:"><a href="?languageVar=hy"><img
-                                                src="staticresources/images/arm_flag.gif"
+                                        <a href="javascript:"><a href="?lg=hy"><img
+                                                src="<c:url value="/images/arm_flag.gif"/>"
                                                 class="flags"
                                                 style="width:20px; height: 15px"></a></a>
                                         <input type="hidden" value="EUR"/>
                                     </li>
 
                                     <li class="currency-GBP">
-                                        <a href="javascript:"><a href="?languageVar=ru"><img
-                                                src="staticresources/images/russian_flag.jpg"
+                                        <a href="javascript:"><a href="?lg=ru"><img
+                                                src="/images/russian_flag.jpg"
                                                 class="flags"
                                                 style="width:20px; height: 15px"></a></a>
                                         <input type="hidden" value="GBP"/>
                                     </li>
                                     <li class="currency-USD active">
-                                        <a href="javascript:;"> <a href="?languageVar=en"><img
-                                                src="staticresources/images/us_flag.png" class="flags"
+                                        <a href="javascript:"> <a href="?lg=en"><img
+                                                src="/images/us_flag.png" class="flags"
                                                 style="width:20px; height: 15px"></a></a>
                                         <input type="hidden" value="USD"/>
                                     </li>
 
                                 </ul>
-
-                                <select class="currencies_src hide" name="currencies">
-
-
-                                    <option value="USD" selected="selected"></option>
-
-
-                                    <option value="EUR"></option>
-
-
-                                    <option value="DRAM"></option>
-
-
-                                </select>
 
                             </div>
                         </div>
@@ -156,8 +142,6 @@
 
 
                 </li>
-
-
                 <li id="widget-social">
                     <ul class="list-inline">
 
@@ -233,10 +217,10 @@
                                         <ul class="customer dropdown-menu">
 
                                             <li class="logout">
-                                                <a href="#">Մուտք</a>
+                                                <a href="/login"><spring:message code="login"/></a>
                                             </li>
                                             <li class="account">
-                                                <a href="#">Գրանցվել</a>
+                                                <a href="/register"><spring:message code="register"/></a>
                                             </li>
 
                                         </ul>
@@ -261,7 +245,7 @@
 
                                 <li class="nav-item active">
                                     <a href="/viewMain">
-                                        <span>Գլխավոր</span>
+                                        <span><spring:message code="home.page"/></span>
                                     </a>
                                 </li>
 
@@ -270,7 +254,7 @@
                                     <a href="/products/getAllProducts?offset=0&maxResult=9"
                                        class="dropdown-toggle dropdown-link"
                                        data-toggle="dropdown">
-                                        <span>Տեսականի</span>
+                                        <span><spring:message code="menu.collection"/></span>
 
                                         <i class="fa fa-caret-down"></i>
 
@@ -285,11 +269,22 @@
                                             <li>
 
                                                 <ul>
-                                                    <li class="list-title">Կանանց համար</li>
+                                                    <li class="list-title"><spring:message
+                                                            code="categories.for.women"/></li>
                                                     <c:forEach items="${applicationScope.womensCategories}"
                                                                var="womenCategory">
                                                         <li class="list-unstyled li-sub-mega">
-                                                            <a href="/products/rings/">${womenCategory.categoryName}
+                                                            <a href="/products/categoryId/${womenCategory.id}?offset=0&maxResult=9">
+                                                                <c:choose>
+                                                                    <c:when test="${cookie.locale.value=='ru'}">
+                                                                        ${womenCategory.categoryName_ru}                                                                    </c:when>
+                                                                    <c:when test="${cookie.locale.value=='hy'}">
+                                                                        ${womenCategory.categoryName_hy}
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        ${womenCategory.categoryName_en}
+                                                                    </c:otherwise>
+                                                                </c:choose>
                                                             </a>
                                                         </li>
                                                     </c:forEach>
@@ -304,14 +299,24 @@
                                                 <ul>
 
 
-                                                    <li class="list-title">Տղամարդկանց համար</li>
+                                                    <li class="list-title"><spring:message
+                                                            code="categories.for.men"/></li>
                                                     <c:forEach items="${applicationScope.mensCategories}"
                                                                var="menCategory">
                                                         <li class="list-unstyled li-sub-mega">
-                                                            <a href="sample-collection-with-left-slidebar.html">${menCategory.categoryName}
+                                                            <a href="/products/categoryId/${menCategory.id}?offset=0&maxResult=9">
 
                                                                     <%--<span class="megamenu-label new-label">Նոր</span>--%>
-
+                                                                <c:choose>
+                                                                    <c:when test="${cookie.locale.value=='ru'}">
+                                                                        ${menCategory.categoryName_ru}                                                                    </c:when>
+                                                                    <c:when test="${cookie.locale.value=='hy'}">
+                                                                        ${menCategory.categoryName_hy}
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        ${menCategory.categoryName_en}
+                                                                    </c:otherwise>
+                                                                </c:choose>
 
                                                             </a>
                                                         </li>
@@ -321,11 +326,22 @@
                                             </li>
                                             <li>
                                                 <ul>
-                                                    <li class="list-title">Այլ</li>
+                                                    <li class="list-title"><spring:message
+                                                            code="categories.other"/></li>
                                                     <c:forEach items="${applicationScope.otherCategories}"
                                                                var="otherCategory">
                                                         <li class="list-unstyled li-sub-mega">
-                                                            <a href="sample-collection-with-left-slidebar.html">${otherCategory.categoryName}
+                                                            <a href="/products/categoryId/${otherCategory.id}?offset=0&maxResult=9">
+                                                                <c:choose>
+                                                                    <c:when test="${cookie.locale.value=='ru'}">
+                                                                        ${otherCategory.categoryName_ru}                                                                    </c:when>
+                                                                    <c:when test="${cookie.locale.value=='hy'}">
+                                                                        ${otherCategory.categoryName_hy}
+                                                                    </c:when>
+                                                                    <c:otherwise>
+                                                                        ${otherCategory.categoryName_en}
+                                                                    </c:otherwise>
+                                                                </c:choose>
                                                             </a>
                                                         </li>
                                                     </c:forEach>
@@ -340,8 +356,8 @@
                                                     <li class="list-title"></li>
 
                                                     <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-collection-with-left-slidebar.html">Ապրանքներ
-                                                            Լիկվիդացիոն գներով
+                                                        <a href="sample-collection-with-left-slidebar.html"><spring:message
+                                                                code="categories.liquidationprices"/>
 
                                                             <span class="megamenu-label new-label">Նոր</span>
 
@@ -350,9 +366,8 @@
                                                     </li>
 
                                                     <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-collection-with-left-slidebar.html">Զեղչեր
-
-
+                                                        <a href="sample-collection-with-left-slidebar.html"><spring:message
+                                                                code="categories.discounts"/>
                                                         </a>
                                                     </li>
 
@@ -411,7 +426,7 @@
                                 <li class="dropdown mega-menu">
                                     <a href="sample-blog-full-width.html" class="dropdown-toggle dropdown-link"
                                        data-toggle="dropdown">
-                                        <span>Ծառայություններ</span>
+                                        <span><spring:message code="menu.services"/> </span>
 
                                         <i class="fa fa-caret-down"></i>
 
@@ -429,32 +444,28 @@
                                                     <li class="list-title"></li>
 
                                                     <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-blog-full-width.html">Ցանկացած զարդի
-                                                            պատրաստում
+                                                        <a href="sample-blog-full-width.html"><spring:message
+                                                                code="menu.services.majewelry"/>
                                                         </a>
                                                     </li>
 
 
                                                     <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-blog-full-width.html">Զարդերի վերանորոգում
-
-
+                                                        <a href="sample-blog-full-width.html"><spring:message
+                                                                code="menu.services.jewrepair"/>
                                                         </a>
                                                     </li>
 
                                                     <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-blog-full-width.html">Զարդերի թարմացում
-
-
+                                                        <a href="sample-blog-full-width.html"><spring:message
+                                                                code="menu.services.jewupdate"/>
                                                         </a>
                                                     </li>
 
 
                                                     <li class="list-unstyled li-sub-mega">
-                                                        <a href="sample-blog-full-width.html"> Զարդերի չափսի
-                                                            փոփոխում
-
-
+                                                        <a href="sample-blog-full-width.html"><spring:message
+                                                                code="menu.services.changingsize"/>
                                                         </a>
                                                     </li>
 
@@ -475,7 +486,7 @@
                                     <a href="about-us.html" class="dropdown-toggle dropdown-link"
                                        data-toggle="dropdown">
 
-                                        <span>Մեր մասին</span>
+                                        <span><spring:message code="menu.aboutus"/> </span>
 
                                         <i class="fa fa-caret-down"></i>
 
@@ -484,16 +495,12 @@
                                         <i class="sub-dropdown visible-sm visible-md visible-lg"></i>
                                     </a>
                                     <ul class="dropdown-menu">
-
-
-                                        <li class=""><a tabindex="-1" href="sample-blog-with-grid-3-columns.html">Դայմոնդ
-                                            Ոսկերչական Սրահ</a></li>
-
-                                        <li class=""><a tabindex="-1" href="/showAboutUs">Սրահի մասին</a></li>
-                                        <li class=""><a tabindex="-1" href="/showBlog">Դայմոնդ
-                                            բլոգ</a></li>
-                                        <li class=""><a tabindex="-1" href="sample-blog-full-width.html">Թափուր
-                                            աշխատատեղեր</a></li>
+                                        <li class=""><a tabindex="-1" href="/showAboutUs"><spring:message
+                                                code="menu.aboutus.salon"/> </a></li>
+                                        <li class=""><a tabindex="-1" href="/showBlog"><spring:message
+                                                code="menu.aboutus.blog"/></a></li>
+                                        <li class=""><a tabindex="-1" href="sample-blog-full-width.html"><spring:message
+                                                code="menu.aboutus.career"/> </a></li>
 
                                     </ul>
                                 </li>
@@ -501,7 +508,7 @@
 
                                 <li class="nav-item">
                                     <a href="/showContact">
-                                        <span> Հետադարձ Կապ</span>
+                                        <span><spring:message code="menu.contactus"/> </span>
                                     </a>
                                 </li>
 
@@ -526,8 +533,8 @@
                     <form id="header-search" class="search-form dropdown-menu" action="search.html" method="get">
                         <input type="hidden" name="type" value="product"/>
                         <input type="text" name="q" value="" accesskey="4" autocomplete="off"
-                               placeholder="Փնտրել..."/>
-                        <button type="submit" class="btn">Փնտրել</button>
+                               placeholder="<spring:message code="menu.search"/>..."/>
+                        <button type="submit" class="btn"><spring:message code="menu.search"/> </button>
                     </form>
                 </div>
             </li>
@@ -540,8 +547,7 @@
                             <i class="sub-dropdown1"></i>
                             <i class="sub-dropdown"></i>
                             <div class="num-items-in-cart">
-                <span class="icon">
-                  Զամբյուղ
+                <span class="icon"><spring:message code="menu.cart"/>
                   <span class="number">0</span>
                 </span>
                             </div>
@@ -566,7 +572,7 @@
                 <form id="mobile-search" class="search-form" action="search.html" method="get">
                     <input type="hidden" name="type" value="product"/>
                     <input type="text" class="" name="q" value="" accesskey="4" autocomplete="off"
-                           placeholder="Փնտրել..."/>
+                           placeholder="<spring:message code="menu.search"/>..."/>
 
                     <button type="submit" class="search-submit" title="search"><i class="fa fa-search"></i></button>
 

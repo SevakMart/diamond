@@ -14,10 +14,10 @@
         <div itemprop="breadcrumb" class="container">
             <div class="row">
                 <div class="col-md-24">
-                    <a href="index.html" class="homepage-link" title="Back to the frontpage">Գլխավոր</a>
+                    <a href="/" class="homepage-link" title="Back to the frontpage"><spring:message code="home.page"/></a>
 
                     <span>/</span>
-                    <span class="page-title">Հետադարձ կապ</span>
+                    <span class="page-title"><spring:message code="menu.contactus"/></span>
 
                 </div>
             </div>
@@ -32,7 +32,7 @@
         <div class="container">
             <div class="row">
                 <div id="page-header" class="col-md-24">
-                    <h1 id="page-title">Հետադարձ կապ</h1>
+                    <h1 id="page-title"><spring:message code="menu.contactus"/></h1>
                 </div>
             </div>
         </div>
@@ -85,7 +85,7 @@
 
                         <div class="right-block contact-content col-md-12">
                             <a href="https://www.google.com/maps/place/Diamond+Jewellery+Salon/@40.786943,43.8464683,17z/data=!4m12!1m6!3m5!1s0x4041fb8dcd24090f:0xf68aa6bffe7a39c7!2sDiamond+Jewellery+Salon!8m2!3d40.786943!4d43.
-          848657!3m4!1s0x4041fb8dcd24090f:0xf68aa6bffe7a39c7!8m2!3d40.786943!4d43.848657"><h6 class="sb-title"><i class="fa fa-home"></i>Գտնել մեզ</h6></a>
+          848657!3m4!1s0x4041fb8dcd24090f:0xf68aa6bffe7a39c7!8m2!3d40.786943!4d43.848657"><h6 class="sb-title"><i class="fa fa-home"></i><spring:message code="findus"/></h6></a>
 
                             <ul class="right-content">
                                 <li class="title">
@@ -99,7 +99,7 @@
                             </ul>
                             <ul class="right-content">
                                 <li class="title">
-                                    <h6>Միացիր մեզ </h6>
+                                    <h6><spring:message code="joinus"/></h6>
                                 </li>
                                 <li class="facebook"><a href="contact.html#"><span class="fa-stack fa-lg btooltip" title="Facebook"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-facebook fa-inverse fa-stack-1x"></i> </span></a></li>
                                 <li class="twitter"><a href="contact.html#"><span class="fa-stack fa-lg btooltip" title="Twitter"> <i class="fa fa-circle fa-stack-2x"></i> <i class="fa fa-twitter fa-inverse fa-stack-1x"></i> </span></a></li>

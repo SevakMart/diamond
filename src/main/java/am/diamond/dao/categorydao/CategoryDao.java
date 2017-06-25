@@ -6,7 +6,7 @@ import am.diamond.dao.Retrieveable;
 import am.diamond.dao.Updateable;
 import am.diamond.model.Category;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by sevak on 6/13/17.
@@ -14,5 +14,5 @@ import java.util.List;
 public interface CategoryDao extends Creatable<Category>, Updateable<Category>,
         Retrieveable<Category>, Removeable<Category> {
 
-    List<Category> getCategoriesByParentId(Long parentId);
+    Set<Category> getCategoriesByParentId(Long parentId);
 }

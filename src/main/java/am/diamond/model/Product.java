@@ -1,6 +1,7 @@
 package am.diamond.model;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -36,7 +37,7 @@ public class Product {
     private Category category;
 
     @OneToMany(mappedBy = "product",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-    private Set<ProductImage> productImages;
+    private List<ProductImage> productImages;
 
     @OneToMany(mappedBy = "ordersProduct",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Order> orders;
@@ -115,11 +116,11 @@ public class Product {
         return result;
     }
 
-    public Set<ProductImage> getProductImages() {
+    public List<ProductImage> getProductImages() {
         return productImages;
     }
 
-    public void setProductImages(Set<ProductImage> productImages) {
+    public void setProductImages(List<ProductImage> productImages) {
         this.productImages = productImages;
     }
 
@@ -129,5 +130,18 @@ public class Product {
 
     public void setOrders(Set<Order> orders) {
         this.orders = orders;
+    }
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", description='" + description + '\'' +
+                ", price=" + price +
+                ", productTitle='" + productTitle + '\'' +
+                ", gem=" + gem +
+                ", metal=" + metal +
+                ", category=" + category +
+                '}';
     }
 }

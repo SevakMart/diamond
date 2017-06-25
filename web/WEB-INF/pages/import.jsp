@@ -15,7 +15,7 @@
 <meta name="description" content=""/>
 
 
-<meta property="og:image" content="staticresources/images/logo_small.png"/>
+<meta property="og:image" content="/images/logo_small.png"/>
 
 
 <link href="https://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet"
@@ -53,7 +53,7 @@
       rel="stylesheet" type="text/css" media="all"/>
 <link href="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/cs.media.3x.css?1065742395697979892"
       rel="stylesheet" type="text/css" media="all"/>
-
+<link rel="icon" href="/images/logo_small.png">
 
 <script src="<c:url value="/js/jquery-1.9.1.min.js"/>"
         type="text/javascript"></script>

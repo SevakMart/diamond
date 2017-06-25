@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: sevak
@@ -13,10 +14,10 @@
         <div itemprop="breadcrumb" class="container">
             <div class="row">
                 <div class="col-md-24">
-                    <a href="../index.html" class="homepage-link" title="Back to the frontpage">Գլխավոր</a>
+                    <a href="../index.html" class="homepage-link" title="Back to the frontpage"><spring:message code="home.page"/></a>
 
                     <span>/</span>
-                    <span class="page-title">Մեր մասին</span>
+                    <span class="page-title"><spring:message code="menu.aboutus"/></span>
 
                 </div>
             </div>
@@ -32,12 +33,12 @@
 
 
                 <div id="page-header">
-                    <h1 id="page-title">Սրահի մասին</h1>
+                    <h1 id="page-title"><spring:message code="menu.aboutus.salon"/></h1>
                 </div>
 
                 <div id="col-main" class="col-md-24 normal-page clearfix">
                     <div class="page about-us   " >
-                        <p><img src="https://cdn.shopify.com/s/files/1/0784/5183/files/banner.png?2741831906760330520" /></p>
+                        <p><img src="/images/banner.png" /></p>
                         <br />
                         <p></p>
                         <ul>

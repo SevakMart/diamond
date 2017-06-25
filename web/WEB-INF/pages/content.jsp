@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: sevak
@@ -15,7 +16,8 @@
                 <div class="col-md-24">
 
                     <div class="home_collections">
-                        <h6 class="general-title">Հավաքծուներ</h6>
+                        <h6 class="general-title">Հավաքածուներ</h6>
+
                         <div class="home_collections_wrapper">
                             <div id="home_collections">
 
@@ -24,7 +26,7 @@
                                     <div class="home_collections_item_inner">
                                         <div class="collection-details">
 
-                                            <a href="sample-collection-with-left-slidebar.html"
+                                            <a href="/products/collection/bracelets?offset=0&maxResult=9"
                                                title="Browse our Bracelets">
 
                                                 <img src="https://cdn.shopify.com/s/files/1/0908/7252/collections/3_large.png?v=1435637345"
@@ -34,9 +36,9 @@
                                         </div>
                                         <div class="hover-overlay">
                                                             <span class="col-name"><a
-                                                                    href="sample-collection-with-left-slidebar.html">Թեվնոցներ</a></span>
+                                                                    href="/products/collection/bracelets?offset=0&maxResult=9">Թեվնոցներ</a></span>
                                             <div class="collection-action">
-                                                <a href="all.html">Տեսնել ամբողջ հավաքածուն</a>
+                                                <a href="/products/collection/bracelets?offset=0&maxResult=9">Տեսնել ամբողջ հավաքածուն</a>
                                             </div>
                                         </div>
                                     </div>
@@ -47,7 +49,7 @@
                                     <div class="home_collections_item_inner">
                                         <div class="collection-details">
 
-                                            <a href="sample-collection-with-left-slidebar.html"
+                                            <a href="/products/collection/earrings?offset=0&maxResult=9"
                                                title="Browse our Earrings">
 
                                                 <img src="https://cdn.shopify.com/s/files/1/0908/7252/collections/2_large.png?v=1435637330"
@@ -57,9 +59,9 @@
                                         </div>
                                         <div class="hover-overlay">
                                                             <span class="col-name"><a
-                                                                    href="sample-collection-with-left-slidebar.html">Ակնաջօղեր</a></span>
+                                                                    href="/products/collection/earrings?offset=0&maxResult=9">Ակնաջօղեր</a></span>
                                             <div class="collection-action">
-                                                <a href="sample-collection-with-left-slidebar.html">Տեսնել
+                                                <a href="/products/collection/earrings?offset=0&maxResult=9">Տեսնել
                                                     ամբողջ հավաքածուն</a>
                                             </div>
                                         </div>
@@ -71,7 +73,7 @@
                                     <div class="home_collections_item_inner">
                                         <div class="collection-details">
 
-                                            <a href="sample-collection-with-left-slidebar.html"
+                                            <a href="/products/collection/necklaces?offset=0&maxResult=9"
                                                title="Browse our Necklaces">
 
                                                 <img src="https://cdn.shopify.com/s/files/1/0908/7252/collections/1_79ec3305-7c83-4daa-804c-fac19b2d1b7b_large.png?v=1435637085"
@@ -81,9 +83,9 @@
                                         </div>
                                         <div class="hover-overlay">
                                                             <span class="col-name"><a
-                                                                    href="sample-collection-with-left-slidebar.html">Շղթաներ ու կուլոններ</a></span>
+                                                                    href="/products/collection/necklaces?offset=0&maxResult=9">Շղթաներ ու կուլոններ</a></span>
                                             <div class="collection-action">
-                                                <a href="sample-collection-with-left-slidebar.html">Տեսնել
+                                                <a href="/products/collection/necklaces?offset=0&maxResult=9">Տեսնել
                                                     ամբողջ հավաքածուն</a>
                                             </div>
                                         </div>
@@ -95,7 +97,7 @@
                                     <div class="home_collections_item_inner">
                                         <div class="collection-details">
 
-                                            <a href="sample-collection-with-left-slidebar.html"
+                                            <a href="/products/collection/rings?offset=0&maxResult=9"
                                                title="Browse our Rings">
 
                                                 <img src="https://cdn.shopify.com/s/files/1/0908/7252/collections/4_large.png?v=1435637313"
@@ -105,9 +107,9 @@
                                         </div>
                                         <div class="hover-overlay">
                                                             <span class="col-name"><a
-                                                                    href="sample-collection-with-left-slidebar.html">Մատանիներ</a></span>
+                                                                    href="/products/collection/rings?offset=0&maxResult=9">Մատանիներ</a></span>
                                             <div class="collection-action">
-                                                <a href="sample-collection-with-left-slidebar.html">Տեսնել
+                                                <a href="/products/collection/rings?offset=0&maxResult=9">Տեսնել
                                                     ամբողջ հավաքածուն</a>
                                             </div>
                                         </div>

@@ -5,7 +5,6 @@ import am.diamond.model.Category;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
 import java.util.Set;
 
 /**
@@ -43,7 +42,7 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
-    public List<Category> getCategoriesByParentId(Long parentId) {
+    public Set<Category> getCategoriesByParentId(Long parentId) {
         return categoryDao.getCategoriesByParentId(parentId);
     }
 }

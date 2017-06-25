@@ -627,7 +627,7 @@
 </script>
 
 
-<script src="staticresources/js/currencies.js" type="text/javascript"></script>
+<script src="/js/currencies.js" type="text/javascript"></script>
 <script src="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/jquery.currencies.min.js?1065742395697979892"
         type="text/javascript"></script>
 

@@ -6,12 +6,12 @@ import am.diamond.service.Removeable;
 import am.diamond.service.Retrieveable;
 import am.diamond.service.Updateable;
 
-import java.util.List;
+import java.util.Set;
 
 /**
  * Created by sevak on 6/13/17.
  */
 public interface CategoryService extends Creatable<Category>, Updateable<Category>,
         Retrieveable<Category>, Removeable<Category> {
-    List<Category> getCategoriesByParentId(Long parentId);
+    Set<Category> getCategoriesByParentId(Long parentId);
 }

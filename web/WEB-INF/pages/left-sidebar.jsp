@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: sevak
@@ -24,18 +25,12 @@
                 <div class="sb-wrapper left-sample-block">
                     <h6 class="sb-title">Մետաղի տեսակը</h6>
                     <ul class="list-unstyled sb-content list-styled">
+                        <c:forEach items="${applicationScope.metals}" var="metal">
+                            <li>
+                                <i class="fa fa-circle"></i> <a href="/products/metalId/${metal.id}" title="Vendor 1">${metal.metalType}(${metal.metalSample})</a>
+                            </li>
 
-                        <li>
-                            <i class="fa fa-circle"></i> <a href="#" title="Vendor 1">585</a>
-                        </li>
-
-                        <li>
-                            <i class="fa fa-circle"></i> <a href="#" title="Vendor 2">750</a>
-                        </li>
-
-                        <li>
-                            <i class="fa fa-circle"></i> <a href="#" title="Vendor 3">958</a>
-                        </li>
+                        </c:forEach>
 
                     </ul>
                 </div>
@@ -48,23 +43,23 @@
                     <ul>
 
 
-                        <li><a href="#"
+                        <li><a href="/products/price/0/100?offset=0&maxResult=9"
                                title="Narrow selection to products matching tag Under $100"><span
                                 class="fe-checkbox"></span> Մինչև $100</a></li>
 
 
-                        <li><a href="#"
+                        <li><a href="/products/price/100/200?offset=0&maxResult=9"
                                title="Narrow selection to products matching tag $100 - $200"><span
                                 class="fe-checkbox"></span> $100 - $200</a></li>
 
 
-                        <li><a href="#"
+                        <li><a href="/products/price/200/300?offset=0&maxResult=9"
                                title="Narrow selection to products matching tag Above $200"><span
                                 class="fe-checkbox"></span> $200-$300</a></li>
-                        <li><a href="#"
+                        <li><a href="/products/price/300/400?offset=0&maxResult=9"
                                title="Narrow selection to products matching tag Above $200"><span
                                 class="fe-checkbox"></span> $300-$400</a></li>
-                        <li><a href="#"
+                        <li><a href="/products/price/400/5000?offset=0&maxResult=9"
                                title="Narrow selection to products matching tag Above $200"><span
                                 class="fe-checkbox"></span> $400-ից ավելի</a></li>
 
@@ -76,30 +71,6 @@
                 <!-- tags groupd 3 -->
 
             </div>
-            <script>
-                $(function () {
-                    $("#coll-filter-1 ul li a, #coll-filter-2 ul li a, #coll-filter-3 ul li a, #coll-filter-4 ul li a").click(function (event) {
-                        event.preventDefault();
-                        var url = $(this).attr('href');
-                        $.ajax({
-                            type: 'GET',
-                            url: url,
-                            data: {},
-                            beforeSend: function (xhr) {
-                                $("#tags-load").show();
-                            },
-                            complete: function (data) {
-                                $('.collection-main-content').html($(".collection-main-content", data.responseText).html());
-                                history.pushState({
-                                    page: url
-                                }, url, url);
-                                $("#tags-load").hide();
-                                handleGridListajax();
-                            }
-                        });
-                    });
-                });
-            </script>
         </div>
 
 
