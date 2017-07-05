@@ -74,12 +74,10 @@
                     data-price="20000">
                     <ul class="row-container list-unstyled clearfix">
                         <li class="row-left">
-                            <a href="#" class="container_item">
+                            <a href="#" class="container_item" style="height: 260px">
                                 <c:set var="images" value="${product.productImages}"/>
-                                <img src="/products/${images[0].imagePath}"
-                                     class="img-responsive" alt="Curabitur cursus dignis"/>
-
-
+                                <img src="/products/${images[0].imagePath}" width="100%"
+                                     class="img-responsive" alt="Curabitur cursus dignis" style="object-fit: cover;height: 100%;"/>
                             </a>
 
                             <div class="hbw">
@@ -91,7 +89,7 @@
                         <li class="row-right parent-fly animMix">
                             <div class="product-content-left">
                                 <a class="title-5"
-                                   href="products/product-with-left-slidebar.html">${product.productTitle}</a>
+                                   href="/products/details/${product.id}">${product.productTitle}</a>
 
                                 <span class="shopify-product-reviews-badge"
                                       data-id="1293239619"></span>

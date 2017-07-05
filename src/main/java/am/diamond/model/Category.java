@@ -26,7 +26,7 @@ public class Category {
     @Column(name = "parent_id")
     private Long parentId;
 
-    @OneToMany(mappedBy = "category", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Product> products;
 
     public Long getId() {

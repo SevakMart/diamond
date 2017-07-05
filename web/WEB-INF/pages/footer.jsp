@@ -1,3 +1,4 @@
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: sevak
@@ -7,7 +8,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div id="footer-content">
-    <h6 class="general-title contact-footer-title">Նորություններ</h6>
+    <h6 class="general-title contact-footer-title"><spring:message code="news"/></h6>
 
 
     <div id="widget-newsletter">
@@ -17,7 +18,7 @@
                 <form action="https://codespot.us5.list-manage.com/subscribe/post?u=ed73bc2d2f8ae97778246702e&amp;id=c63b4d644d"
                       method="post" id="mc-embedded-subscribe-form"
                       name="mc-embedded-subscribe-form" target="_blank">
-                    <span class="news-desc">Մենք խոստանում ենք Ձեզ ուղղարկել լավագույն ապրանքները:</span>
+                    <span class="news-desc"><spring:message code="newsmessage"/></span>
                     <div class="group_input">
                         <input class="form-control" type="email" placeholder="Գրեք Ձեր էլ-փոստը"
                                name="Email" id="email-input"/>
@@ -204,46 +205,6 @@
                 // Start from scratch.
                 cart_summary.empty();
                 // Pull it all out.
-
-                <%--jQuery.each(cart, function (key, value) {--%>
-                    <%--if (key === 'items') {--%>
-
-
-                        <%--if (value.length) {--%>
-
-                            <%--jQuery('<div class="items control-container"></div>').appendTo(cart_summary);--%>
-                            <%--var table = jQuery(cart_summary_id + ' div.items');--%>
-
-                            <%--jQuery.each(value, function (i, item) {--%>
-                                <%--jQuery('<div class="row items-wrapper"><a class="cart-close" title="Remove" href="javascript:void(0);" onclick="Shopify.removeItem(' + item.variant_id + ')"><i class="fa fa-times"></i></a><div class="col-md-8 cart-left"><a class="cart-image" href="https://cs-utc-jewelry.myshopify.com/' &#32;--%>
-                                <%--+ &#32;--%>
-                                <%--item.url &#32;--%>
-                                <%--+ &#32;--%>
-                                <%--'"><img src="https://cs-utc-jewelry.myshopify.com/' &#32;--%>
-                                <%--+ &#32;--%>
-                                <%--Shopify.resizeImage(item.image, &#32;--%>
-                                <%--'small'--%>
-                                <%--)&#32;--%>
-                                <%--+ &#32;--%>
-                                <%--'" alt="" title=""/></a></div><div class="col-md-16 cart-right"><div class="cart-title"><a href="https://cs-utc-jewelry.myshopify.com/' &#32;--%>
-                                <%--+ &#32;--%>
-                                <%--item.url &#32;--%>
-                                <%--+ &#32;--%>
-                                <%--'">' + item.title + '</a></div><div class="cart-price">' + Shopify.formatMoney(item.price, "<span class='money'>${{amount}}</span>") + '<span class="x"> x </span>' + item.quantity + '</div></div></div>'--%>
-                                <%--).--%>
-                                <%--appendTo(table);--%>
-                            <%--});--%>
-
-                            <%--jQuery('<div class="subtotal"><span>Subtotal:</span><span class="cart-total-right">' + Shopify.formatMoney(cart.total_price, "<span class='money'>${{amount}}</span>") + '</span></div>').appendTo(cart_summary);--%>
-                            <%--jQuery('<div class="action"><button class="btn" onclick="window.location=\'/checkout\'">CHECKOUT</button><a class="btn btn-1" href="https://cs-utc-jewelry.myshopify.com/cart\">View Cart</button></a></div>').appendTo(cart_summary);--%>
-
-
-                        <%--}--%>
-                        <%--else {--%>
-                            <%--jQuery('<div class="empty text-center"><em>Your shopping cart is empty.. <a href="collections/all.html" class="btn">Continue Shopping</a></em></div>').appendTo(cart_summary);--%>
-                        <%--}--%>
-                    <%--}--%>
-                <%--});--%>
             }
         }
         // Update cart count.
@@ -428,165 +389,6 @@
         var quickShopProductActions = $('#quick-shop-product-actions');
         var quickShopModalBackground = $('#quick-shop-modal .quick-shop-modal-bg');
 
-        <%--$('body').on(clickEv, '.quick_shop:not(.unavailable)', function (event) {--%>
-            <%--var quickShopImage = $('#quick-shop-image');--%>
-
-            <%--var $this = $(this);--%>
-            <%--var product_json = $this.find('.product-json').html();--%>
-
-            <%--// Grab product data--%>
-            <%--var selectedProduct = JSON.parse(product_json);--%>
-            <%--var selectedProductID = selectedProduct.id;--%>
-            <%--// Update add button--%>
-            <%--quickShopAddButton.data('product-id', selectedProductID);--%>
-
-            <%--// Update image--%>
-            <%--quickShopImage.empty();--%>
-            <%--quickShopImage.html('<a class="main-image"><img class="img-zoom img-responsive image-fly" src="https://cs-utc-jewelry.myshopify.com/' + &#32;--%>
-            <%--Shopify.resizeImage(selectedProduct.featured_image, "grande") + '" data-zoom-image="' + selectedProduct.featured_image + '" alt="" /></a>'--%>
-            <%--)--%>
-            <%--;--%>
-
-            <%--var qs_images_size = "";--%>
-            <%--if (selectedProduct.images.length < 4) qs_images_size = "small-thumbs";--%>
-
-            <%--quickShopImage.append('<div id="gallery_main_qs" class="product-image-thumb scroll scroll-mini ' + qs_images_size + '"></div>');--%>
-
-            <%--var qs_images = selectedProduct.images;--%>
-            <%--$.each(qs_images, function (index, value) {--%>
-                <%--if (index)--%>
-                    <%--quickShopImage.find('#gallery_main_qs').append('<a class="image-thumb" href="https://cs-utc-jewelry.myshopify.com/' + value + '" alt="" data-image="' + Shopify.resizeImage(value, 'grande') + '" data-zoom-image="' + Shopify.resizeImage(value, 'original') + '"><img src="https://cs-utc-jewelry.myshopify.com/' + &#32;--%>
-                <%--Shopify.resizeImage(value, "compact") + '" alt="" /></a>'--%>
-                <%--)--%>
-                <%--;--%>
-                <%--else--%>
-                <%--quickShopImage.find('#gallery_main_qs').append('<a class="image-thumb active" href="https://cs-utc-jewelry.myshopify.com/' + value + '" alt="" data-image="' + Shopify.resizeImage(value, 'grande') + '" data-zoom-image="' + Shopify.resizeImage(value, 'original') + '"><img src="https://cs-utc-jewelry.myshopify.com/' + &#32;--%>
-                <%--Shopify.resizeImage(value, "compact") + '" alt="" /></a>'--%>
-                <%--)--%>
-                <%--;--%>
-            <%--});--%>
-
-            <%--// Update title--%>
-            <%--quickShopTitle.html('<span href="/products/' + selectedProduct.handle + '">' + selectedProduct.title + '</span>');--%>
-
-            <%--// Update description--%>
-            <%--var desc = selectedProduct.description.substr(0, 370) + "...";--%>
-            <%--quickShopDescription.html(desc);--%>
-
-            <%--// Update relative--%>
-            <%--quickShopRelative.find('a').remove();--%>
-
-            <%--quickShopRelative.find('.vendor .control-label').after('<a href="collections/vendors@q=' + selectedProduct.vendor.replace('%2520', % 2520--%>
-            <%--'+'--%>
-            <%--)--%>
-            <%--+'.html"> ' + selectedProduct.vendor + '</a>'--%>
-            <%--)--%>
-            <%--;--%>
-            <%--quickShopRelative.find('.type .control-label').after('<a href="collections/types@q=' + selectedProduct.type.replace('%2520', % 2520--%>
-            <%--'+'--%>
-            <%--)--%>
-            <%--+'.html"> ' + selectedProduct.type + '</a>'--%>
-            <%--)--%>
-            <%--;--%>
-
-            <%--// Generate variants--%>
-            <%--var productVariants = selectedProduct.variants;--%>
-            <%--var productVariantsCount = productVariants.length;--%>
-
-            <%--quickShopPriceContainer.html('');--%>
-            <%--quickShopVariantsContainer.html('');--%>
-            <%--quickShopAddToCartButton.removeAttr('disabled').fadeTo(200, 1);--%>
-
-            <%--if (productVariantsCount > 1) {--%>
-
-                <%--// Reveal variants container--%>
-                <%--quickShopVariantsContainer.show();--%>
-
-                <%--// Build variants element--%>
-                <%--var quickShopVariantElement = $('<select>', {--%>
-                    <%--'id': ('#quick-shop-variants-' + selectedProductID),--%>
-                    <%--'name': 'id'--%>
-                <%--});--%>
-                <%--var quickShopVariantOptions = '';--%>
-
-                <%--for (var i = 0; i < productVariantsCount; i++) {--%>
-                    <%--quickShopVariantOptions += '<option value="' + productVariants[i].id + '">' + productVariants[i].title + '</option>'--%>
-                <%--}--%>
-                <%--;--%>
-
-                <%--// Add variants element to page--%>
-                <%--quickShopVariantElement.append(quickShopVariantOptions);--%>
-                <%--quickShopVariantsContainer.append(quickShopVariantElement);--%>
-
-                <%--// Bind variants to OptionSelect JS--%>
-                <%--new Shopify.OptionSelectors(('#quick-shop-variants-' + selectedProductID), {--%>
-                    <%--product: selectedProduct,--%>
-                    <%--onVariantSelected: selectOptionCallback--%>
-                <%--});--%>
-
-                <%--// Add label if only one product option and it isn't 'Title'.--%>
-                <%--if (selectedProduct.options.length == 1 && selectedProduct.options[0] != 'Title') {--%>
-                    <%--$('#quick-shop-product-actions .selector-wrapper:eq(0)').prepend('<label>' + selectedProduct.options[0] + '</label>');--%>
-                <%--}--%>
-
-                <%--// Auto-select first available variant on page load.--%>
-                <%--var found_one_in_stock = false;--%>
-                <%--for (var i = 0; i < selectedProduct.variants.length; i++) {--%>
-
-                    <%--var variant = selectedProduct.variants[i];--%>
-                    <%--if (variant.available && found_one_in_stock == false) {--%>
-
-                        <%--found_one_in_stock = true;--%>
-                        <%--for (var j = 0; j < variant.options.length; j++) {--%>
-
-                            <%--$('.single-option-selector:eq(' + j + ')').val(variant.options[j]).trigger('change');--%>
-
-                        <%--}--%>
-                    <%--}--%>
-                <%--}--%>
-
-                <%--$('#quick-shop-variants-container .single-option-selector').customStyle();--%>
-
-            <%--} else { // If product only has a single variant--%>
-
-                <%--// Hide unnecessary variants container--%>
-                <%--quickShopVariantsContainer.hide();--%>
-
-                <%--// Build variants element--%>
-                <%--var quickShopVariantElement = $('<select>', {--%>
-                    <%--'id': ('#quick-shop-variants-' + selectedProductID),--%>
-                    <%--'name': 'id'--%>
-                <%--});--%>
-                <%--var quickShopVariantOptions = '';--%>
-
-                <%--for (var i = 0; i < productVariantsCount; i++) {--%>
-                    <%--quickShopVariantOptions += '<option value="' + productVariants[i].id + '">' + productVariants[i].title + '</option>'--%>
-                <%--}--%>
-                <%--;--%>
-
-                <%--// Add variants element to page--%>
-                <%--quickShopVariantElement.append(quickShopVariantOptions);--%>
-                <%--quickShopVariantsContainer.append(quickShopVariantElement);--%>
-
-
-                <%--// Update the add button to include correct variant id--%>
-                <%--quickShopAddToCartButton.data('variant-id', productVariants[0].id);--%>
-
-                <%--// Determine if product is on sale--%>
-                <%--if (productVariants[0].compare_at_price > 0 && productVariants[0].compare_at_price > productVariants[0].price) {--%>
-                    <%--quickShopPriceContainer.html('<del class="price_compare">' + Shopify.formatMoney(productVariants[0].compare_at_price, "<span class='money'>${{amount}}</span>") + '</del>' + '<span class="price_sale">' + Shopify.formatMoney(productVariants[0].price, "<span class='money'>${{amount}}</span>") + '</span>');--%>
-                <%--} else {--%>
-                    <%--quickShopPriceContainer.html('<span class="price">' + Shopify.formatMoney(productVariants[0].price, "<span class='money'>${{amount}}</span>") + '</span>');--%>
-                <%--}--%>
-
-            <%--} // END of (productVariantsCount > 1)--%>
-
-
-            <%--// Update currency--%>
-            <%--currenciesCallbackSpecial('#quick-shop-modal span.money');--%>
-
-
-        <%--});--%>
 
         /* selectOptionCallback
          ===================================== */

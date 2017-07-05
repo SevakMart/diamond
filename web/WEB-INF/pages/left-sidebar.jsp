@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: sevak
@@ -16,14 +17,14 @@
         <div class="sb-wrapper">
             <!-- filter tags group -->
             <div class="filter-tag-group">
-                <h6 class="sb-title">Տեսակավորել</h6>
+                <h6 class="sb-title"><spring:message code="sortby"/> </h6>
 
 
                 <!-- tags groupd 2 -->
 
 
                 <div class="sb-wrapper left-sample-block">
-                    <h6 class="sb-title">Մետաղի տեսակը</h6>
+                    <p class="sb-title"><spring:message code="metaltype"/></p>
                     <ul class="list-unstyled sb-content list-styled">
                         <c:forEach items="${applicationScope.metals}" var="metal">
                             <li>
@@ -39,13 +40,13 @@
                 <div class="tag-group" id="coll-filter-3">
 
 
-                    <p class="title">Գներ</p>
+                    <p class="title"><spring:message code="prices"/></p>
                     <ul>
 
 
                         <li><a href="/products/price/0/100?offset=0&maxResult=9"
                                title="Narrow selection to products matching tag Under $100"><span
-                                class="fe-checkbox"></span> Մինչև $100</a></li>
+                                class="fe-checkbox"></span> <spring:message code="to"/> $100</a></li>
 
 
                         <li><a href="/products/price/100/200?offset=0&maxResult=9"
@@ -61,7 +62,7 @@
                                 class="fe-checkbox"></span> $300-$400</a></li>
                         <li><a href="/products/price/400/5000?offset=0&maxResult=9"
                                title="Narrow selection to products matching tag Above $200"><span
-                                class="fe-checkbox"></span> $400-ից ավելի</a></li>
+                                class="fe-checkbox"></span> $400-<spring:message code="upper"/> </a></li>
 
 
                     </ul>
@@ -75,30 +76,30 @@
 
 
         <div class="home-collection-wrapper sb-wrapper clearfix">
-            <h6 class="sb-title">Տեսականի</h6>
+            <h6 class="sb-title"><spring:message code="menu.collection"/></h6>
             <ul class="list-unstyled sb-content list-styled">
 
 
                 <li>
-                    <a href="#"><span><i class="fa fa-circle"></i>Մատանիներ</span><span
+                    <a href="/products/collection/rings?offset=0&maxResult=9"><span><i class="fa fa-circle"></i><spring:message code="collection.rings"/></span><span
                             class="collection-count"> (8)</span></a>
                 </li>
 
 
                 <li>
-                    <a href="#"><span><i class="fa fa-circle"></i>Թևնոցներ</span><span
+                    <a href="/products/collection/bracelets?offset=0&maxResult=9"><span><i class="fa fa-circle"></i><spring:message code="collection.bracelets"/></span><span
                             class="collection-count"> (8)</span></a>
                 </li>
 
 
                 <li>
-                    <a href="#"><span><i class="fa fa-circle"></i> Վզնոցներ</span><span
+                    <a href="/products/collection/necklaces?offset=0&maxResult=9"><span><i class="fa fa-circle"></i> <spring:message code="collection.chainsandnecklaces"/></span><span
                             class="collection-count"> (8)</span></a>
                 </li>
 
 
                 <li>
-                    <a href="#"><span><i class="fa fa-circle"></i> Ականջօղեր</span><span
+                    <a href="/products/collection/earrings?offset=0&maxResult=9"><span><i class="fa fa-circle"></i> <spring:message code="collection.earrings"/></span><span
                             class="collection-count"> (8)</span></a>
                 </li>
 
@@ -111,7 +112,7 @@
             <div class="group_deal_products">
                 <div class="">
                     <div class="home_deal_fp">
-                        <h6 class="sb-title">Հատուկ ապրանքներ</h6>
+                        <h6 class="sb-title"><spring:message code="specialproducts"/> </h6>
                         <div class="home_deal_fp_wrapper sb-content">
                             <div id="home_deal_fp">
 

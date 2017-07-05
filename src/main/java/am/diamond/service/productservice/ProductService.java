@@ -19,11 +19,13 @@ public interface ProductService extends Creatable<Product>, Updateable<Product>,
 
     Long count();
 
-    Set<Product> getProductsByMetalId(int metalId);
+    List<Product> getProductsByMetalId(int metalId);
 
     List<Product> getPaginatedList(Integer offset, Integer maxResult, Long categoryId);
 
     List<Product> getCollection(Integer offset, Integer maxResult, String collection);
 
     List<Product> getProductsByPrice(double startPrice, double endPrice,Integer offset, Integer maxResult);
+
+    List<Product> getRandomDiscountedProducts();
 }

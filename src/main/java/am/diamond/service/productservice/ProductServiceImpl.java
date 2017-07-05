@@ -4,7 +4,6 @@ import am.diamond.dao.categorydao.CategoryConstants;
 import am.diamond.dao.productdao.ProductDao;
 import am.diamond.model.Product;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,6 +22,8 @@ public class ProductServiceImpl implements ProductService {
     public static final String NECKLACES= "necklaces";
 
     public static final String EARRINGS = "earrings";
+
+    public static final Integer RANDOM_PRODUCTS_COUNT = 8;
 
     @Autowired
     private ProductDao productDao;
@@ -44,7 +45,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product get(long id) {
-        return null;
+        return productDao.get(id);
     }
 
     @Override
@@ -63,7 +64,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Set<Product> getProductsByMetalId(int metalId) {
+    public List<Product> getProductsByMetalId(int metalId) {
         return productDao.getProductsByMetalId(metalId);
     }
 
@@ -85,5 +86,10 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getProductsByPrice(double startPrice, double endPrice, Integer offset, Integer maxResult) {
         return productDao.getProductsByPriceRange(startPrice, endPrice, offset, maxResult);
+    }
+
+    @Override
+    public List<Product> getRandomDiscountedProducts() {
+        return productDao.getRandomDiscountedProducts(RANDOM_PRODUCTS_COUNT);
     }
 }

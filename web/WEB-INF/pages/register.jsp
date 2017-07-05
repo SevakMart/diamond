@@ -18,10 +18,10 @@
         <div itemprop="breadcrumb" class="container">
             <div class="row">
                 <div class="col-md-24">
-                    <a href="/" class="homepage-link" title="Back to the frontpage">Home</a>
+                    <a href="/" class="homepage-link" title="Back to the frontpage"><spring:message code="home.page"/></a>
 
                     <span>/</span>
-                    <span class="page-title">Create Account</span>
+                    <span class="page-title"><spring:message code="register"/></span>
 
                 </div>
             </div>
@@ -36,7 +36,7 @@
 
 
                 <div id="page-header" class="col-md-24">
-                    <h1 id="page-title">Register</h1>
+                    <h1 id="page-title"><spring:message code="register"/></h1>
                 </div>
 
                 <div id="col-main" class="col-md-24 register-page clearfix">
@@ -45,26 +45,27 @@
 
                         <spring:hasBindErrors name="user">
                             <c:forEach var="error" items="${errors.allErrors}">
-                                <b style="color: red"><spring:message message="${error}" /></b>
-                                <br />
+                                <b style="color: red"><spring:message message="${error}"/></b>
+                                <br/>
                             </c:forEach>
                         </spring:hasBindErrors>
                         <ul id="register-form" class="row list-unstyled">
                             <li class="clearfix"></li>
                             <li id="last_name">
-                                <label class="control-label" for="last_name">Username<span class="req">*</span></label>
-                                <input type="text" value="" name="userName"  class="form-control "/>
+                                <label class="control-label" for="last_name"><spring:message code="userName"/> <span
+                                        class="req">*</span></label>
+                                <input type="text" value="" name="userName" class="form-control "/>
                             </li>
                             <li class="clearfix"></li>
                             <li id="email" class="">
-                                <label class="control-label" for="email">Your Email <span
+                                <label class="control-label" for="email"><spring:message code="youremail"/> <span
                                         class="req">*</span></label>
                                 <input type="email" value="" name="email"
                                        class="form-control "/>
                             </li>
                             <li class="clearfix"></li>
                             <li id="password" class="">
-                                <label class="control-label" for="password">Your Password <span
+                                <label class="control-label" for="password"><spring:message code="password"/> <span
                                         class="req">*</span></label>
                                 <input type="password" value="" name="password"
                                        class="form-control password"/>
@@ -72,7 +73,7 @@
                             <li class="clearfix"></li>
 
                             <li class="unpadding-top action-last">
-                                <button class="btn" type="submit">Create an Account</button>
+                                <button class="btn" type="submit"><spring:message code="register"/></button>
                             </li>
                         </ul>
                     </form>

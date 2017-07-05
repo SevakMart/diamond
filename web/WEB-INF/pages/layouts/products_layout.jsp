@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -23,11 +24,11 @@
                 <div itemprop="breadcrumb" class="container">
                     <div class="row">
                         <div class="col-md-24">
-                            <a href="../index.html" class="homepage-link" title="Back to the frontpage">Գլխավոր</a>
+                            <a href="../index.html" class="homepage-link" title="Back to the frontpage"><spring:message code="home.page"/> </a>
 
 
                             <span>/</span>
-                            <span class="page-title">Տեսականի</span>
+                            <span class="page-title"><spring:message code="menu.collection"/> </span>
 
 
                         </div>
@@ -43,7 +44,7 @@
                             <div id="tags-load" style="display:none;"><i class="fa fa-spinner fa-pulse fa-2x"></i></div>
 
                             <div id="page-header" class="col-sm-24">
-                                <h1 id="page-title">Տեսականի</h1>
+                                <h1 id="page-title"><spring:message code="menu.collection"/> </h1>
                             </div>
 
 
@@ -51,7 +52,7 @@
 
 
                                 <div class="collection-panner">
-                                    <img src="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/collection_banner.jpg?1065742395697979892"
+                                    <img src="/images/collection_banner.jpg"
                                          class="img-responsive" alt=""/>
                                 </div>
 

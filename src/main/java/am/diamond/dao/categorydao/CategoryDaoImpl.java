@@ -47,12 +47,12 @@ public class CategoryDaoImpl implements CategoryDao {
     }
 
     @Override
-    @Transactional
     public Set<Category> getCategoriesByParentId(Long parentId) {
-        Session session = sessionFactory.getCurrentSession();
+        Session session = sessionFactory.openSession();
         List<Category> list = session.createCriteria(Category.class).add(Restrictions.eq("parentId", parentId)).list();
         Set<Category> categories = new HashSet<>(list);
         System.out.println(categories);
+        session.close();
         return categories;
     }
 }

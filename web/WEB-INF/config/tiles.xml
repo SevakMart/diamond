@@ -27,6 +27,12 @@
     </definition>
 
     <!--pages-->
+
+    <definition name="productDetails.view" extends="secondary.view">
+        <put-attribute name="title" value="Product details"/>
+        <put-attribute name="content" value="/WEB-INF/pages/product-details.jsp"/>
+    </definition>
+
     <definition name="home.view" extends="main.view">
         <put-attribute name="title" value="Diamond Home Page"/>
         <put-attribute name="content" value="/WEB-INF/pages/content.jsp"/>

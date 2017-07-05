@@ -24,6 +24,8 @@ public class ProductsController {
 
     public static final String PRODUCTS = "products";
 
+    public static final String PRODUCT = "product";
+
     @Autowired
     private ProductService productService;
 
@@ -56,7 +58,7 @@ public class ProductsController {
 
     @RequestMapping(value = "/metalId/{metalId}")
     public String getProductsByMetalId(@PathVariable("metalId") int metalId,RedirectAttributes redirectAttributes ) {
-        Set<Product> products = productService.getProductsByMetalId(metalId);
+        List<Product> products = productService.getProductsByMetalId(metalId);
         redirectAttributes.addFlashAttribute(PRODUCTS, products);
         return "redirect:/products/show";
     }
@@ -79,5 +81,12 @@ public class ProductsController {
         List<Product> products = productService.getCollection(offset, maxResult, collection);
         redirectAttributes.addFlashAttribute(PRODUCTS, products);
         return "redirect:/products/show";
+    }
+
+    @RequestMapping (value = "/details/{productId}")
+    public String showProductDetails (@PathVariable("productId") Long productId, Model model){
+        Product product = productService.get(productId);
+        model.addAttribute(PRODUCT, product);
+        return "productDetails.view";
     }
 }

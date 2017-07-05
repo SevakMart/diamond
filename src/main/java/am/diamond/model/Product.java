@@ -1,6 +1,11 @@
 package am.diamond.model;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
+import org.hibernate.annotations.LazyCollection;
+
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.List;
 import java.util.Set;
 
@@ -9,7 +14,7 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "products")
-public class Product {
+public class Product implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -24,6 +29,9 @@ public class Product {
     @Column(name = "product_title")
     private String productTitle;
 
+    @Column
+    private int discount;
+
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "gem_id")
     private Gem gem;
@@ -36,10 +44,12 @@ public class Product {
     @JoinColumn(name = "category_id")
     private Category category;
 
-    @OneToMany(mappedBy = "product",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany( fetch = FetchType.EAGER, cascade = CascadeType.ALL )
+    @JoinColumn(name = "product_id")
+    @Fetch(FetchMode.SELECT)
     private List<ProductImage> productImages;
 
-    @OneToMany(mappedBy = "ordersProduct",fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "ordersProduct", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Order> orders;
 
     public Long getId() {
@@ -116,6 +126,7 @@ public class Product {
         return result;
     }
 
+
     public List<ProductImage> getProductImages() {
         return productImages;
     }
@@ -143,5 +154,13 @@ public class Product {
                 ", metal=" + metal +
                 ", category=" + category +
                 '}';
+    }
+
+    public int getDiscount() {
+        return discount;
+    }
+
+    public void setDiscount(int discount) {
+        this.discount = discount;
     }
 }

@@ -113,7 +113,7 @@
                                 <ul class="currencies dropdown-menu text-left">
 
                                     <li class="currency-EUR">
-                                        <a href="javascript:"><a href="?lg=hy"><img
+                                        <a href="javascript:"><a href="${requestScope['javax.servlet.forward.request_uri']}?lg=hy"><img
                                                 src="<c:url value="/images/arm_flag.gif"/>"
                                                 class="flags"
                                                 style="width:20px; height: 15px"></a></a>
@@ -121,14 +121,14 @@
                                     </li>
 
                                     <li class="currency-GBP">
-                                        <a href="javascript:"><a href="?lg=ru"><img
+                                        <a href="javascript:"><a href="${requestScope['javax.servlet.forward.request_uri']}?lg=ru"><img
                                                 src="/images/russian_flag.jpg"
                                                 class="flags"
                                                 style="width:20px; height: 15px"></a></a>
                                         <input type="hidden" value="GBP"/>
                                     </li>
                                     <li class="currency-USD active">
-                                        <a href="javascript:"> <a href="?lg=en"><img
+                                        <a href="javascript:"> <a href="${requestScope['javax.servlet.forward.request_uri']}?lg=en"><img
                                                 src="/images/us_flag.png" class="flags"
                                                 style="width:20px; height: 15px"></a></a>
                                         <input type="hidden" value="USD"/>
@@ -436,9 +436,7 @@
 
                                     <div class="megamenu-co ntainer megamenu-container-2 dropdown-menu banner-right mega-col-2">
 
-                                        <ul class="sub-mega-menu">
 
-                                            <li>
 
                                                 <ul>
                                                     <li class="list-title"></li>
@@ -473,10 +471,6 @@
                                                 </ul>
 
 
-                                            </li>
-
-
-                                        </ul>
                                     </div>
 
                                 </li>

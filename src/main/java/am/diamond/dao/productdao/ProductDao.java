@@ -18,7 +18,7 @@ public interface ProductDao extends Creatable<Product>, Retrieveable<Product>, U
 
     Long count();
 
-    Set<Product> getProductsByMetalId(int metalId);
+    List<Product> getProductsByMetalId(int metalId);
 
     List<Product> getPaginatedList(Integer offset, Integer maxResult, Long categoryId);
 
@@ -29,6 +29,8 @@ public interface ProductDao extends Creatable<Product>, Retrieveable<Product>, U
     List<Product> getBracelets(Integer offset, Integer maxResult);
 
     List<Product> getNecklacesAndChains(Integer offset, Integer maxResult);
+
+    List<Product> getRandomDiscountedProducts(Integer maxResult);
 
 
 }

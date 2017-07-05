@@ -19,9 +19,10 @@ public class ProductImage {
     @Column(name = "image_path")
     private String imagePath;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "product_id")
-    private Product product;
+//    @ManyToOne(cascade = CascadeType.ALL)
+//    @JoinColumn(name = "product_id", nullable = false, )
+    @Column(name = "product_id")
+    private Long productId;
 
     public Long getId() {
         return id;
@@ -47,13 +48,13 @@ public class ProductImage {
         this.imagePath = imagePath;
     }
 
-    public Product getProduct() {
-        return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
-    }
+//    public Product getProduct() {
+//        return product;
+//    }
+//
+//    public void setProduct(Product product) {
+//        this.product = product;
+//    }
 
     @Override
     public boolean equals(Object o) {
@@ -62,9 +63,9 @@ public class ProductImage {
 
         ProductImage that = (ProductImage) o;
 
-        if (id != null ? !id.equals(that.id) : that.id != null) return false;
+        return id != null ? !id.equals(that.id) : that.id != null;
 
-        return product != null ? product.equals(that.product) : that.product == null;
+
     }
 
     @Override
@@ -72,8 +73,14 @@ public class ProductImage {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (title != null ? title.hashCode() : 0);
         result = 31 * result + (imagePath != null ? imagePath.hashCode() : 0);
-        result = 31 * result + (product != null ? product.hashCode() : 0);
         return result;
     }
 
+    public Long getProductId() {
+        return productId;
+    }
+
+    public void setProductId(Long productId) {
+        this.productId = productId;
+    }
 }
