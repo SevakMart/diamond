@@ -17,7 +17,7 @@
         <div class="sb-wrapper">
             <!-- filter tags group -->
             <div class="filter-tag-group">
-                <h6 class="sb-title"><spring:message code="sortby"/> </h6>
+                <h6 class="sb-title"><spring:message code="sortby"/></h6>
 
 
                 <!-- tags groupd 2 -->
@@ -28,7 +28,8 @@
                     <ul class="list-unstyled sb-content list-styled">
                         <c:forEach items="${applicationScope.metals}" var="metal">
                             <li>
-                                <i class="fa fa-circle"></i> <a href="/products/metalId/${metal.id}" title="Vendor 1">${metal.metalType}(${metal.metalSample})</a>
+                                <i class="fa fa-circle"></i> <a href="/products/metalId/${metal.id}"
+                                                                title="Vendor 1">${metal.metalType}(${metal.metalSample})</a>
                             </li>
 
                         </c:forEach>
@@ -44,23 +45,23 @@
                     <ul>
 
 
-                        <li><a href="/products/price/0/100?offset=0&maxResult=9"
+                        <li><a href="/products/price/0/100/offset/1"
                                title="Narrow selection to products matching tag Under $100"><span
                                 class="fe-checkbox"></span> <spring:message code="to"/> $100</a></li>
 
 
-                        <li><a href="/products/price/100/200?offset=0&maxResult=9"
+                        <li><a href="/products/price/100/200/offset/1"
                                title="Narrow selection to products matching tag $100 - $200"><span
                                 class="fe-checkbox"></span> $100 - $200</a></li>
 
 
-                        <li><a href="/products/price/200/300?offset=0&maxResult=9"
+                        <li><a href="/products/price/200/300/offset/1"
                                title="Narrow selection to products matching tag Above $200"><span
                                 class="fe-checkbox"></span> $200-$300</a></li>
-                        <li><a href="/products/price/300/400?offset=0&maxResult=9"
+                        <li><a href="/products/price/300/400/offset/1"
                                title="Narrow selection to products matching tag Above $200"><span
                                 class="fe-checkbox"></span> $300-$400</a></li>
-                        <li><a href="/products/price/400/5000?offset=0&maxResult=9"
+                        <li><a href="/products/price/400/5000/offset/1"
                                title="Narrow selection to products matching tag Above $200"><span
                                 class="fe-checkbox"></span> $400-<spring:message code="upper"/> </a></li>
 
@@ -81,25 +82,29 @@
 
 
                 <li>
-                    <a href="/products/collection/rings?offset=0&maxResult=9"><span><i class="fa fa-circle"></i><spring:message code="collection.rings"/></span><span
+                    <a href="/products/collection/rings/offset/1"><span><i class="fa fa-circle"></i><spring:message
+                            code="collection.rings"/></span><span
                             class="collection-count"> (8)</span></a>
                 </li>
 
 
                 <li>
-                    <a href="/products/collection/bracelets?offset=0&maxResult=9"><span><i class="fa fa-circle"></i><spring:message code="collection.bracelets"/></span><span
+                    <a href="/products/collection/bracelets/offset/1"><span><i class="fa fa-circle"></i><spring:message
+                            code="collection.bracelets"/></span><span
                             class="collection-count"> (8)</span></a>
                 </li>
 
 
                 <li>
-                    <a href="/products/collection/necklaces?offset=0&maxResult=9"><span><i class="fa fa-circle"></i> <spring:message code="collection.chainsandnecklaces"/></span><span
+                    <a href="/products/collection/necklaces/offset/1"><span><i class="fa fa-circle"></i> <spring:message
+                            code="collection.chainsandnecklaces"/></span><span
                             class="collection-count"> (8)</span></a>
                 </li>
 
 
                 <li>
-                    <a href="/products/collection/earrings?offset=0&maxResult=9"><span><i class="fa fa-circle"></i> <spring:message code="collection.earrings"/></span><span
+                    <a href="/products/collection/earrings/offset/1"><span><i class="fa fa-circle"></i> <spring:message
+                            code="collection.earrings"/></span><span
                             class="collection-count"> (8)</span></a>
                 </li>
 
@@ -112,7 +117,7 @@
             <div class="group_deal_products">
                 <div class="">
                     <div class="home_deal_fp">
-                        <h6 class="sb-title"><spring:message code="specialproducts"/> </h6>
+                        <h6 class="sb-title"><spring:message code="specialproducts"/></h6>
                         <div class="home_deal_fp_wrapper sb-content">
                             <div id="home_deal_fp">
 

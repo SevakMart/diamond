@@ -113,7 +113,7 @@
                                 <ul class="currencies dropdown-menu text-left">
 
                                     <li class="currency-EUR">
-                                        <a href="javascript:"><a href="${requestScope['javax.servlet.forward.request_uri']}?lg=hy"><img
+                                        <a href="javascript:"><a href="?lg=hy"><img
                                                 src="<c:url value="/images/arm_flag.gif"/>"
                                                 class="flags"
                                                 style="width:20px; height: 15px"></a></a>
@@ -251,7 +251,7 @@
 
 
                                 <li class="dropdown mega-menu">
-                                    <a href="/products/getAllProducts?offset=0&maxResult=9"
+                                    <a href="/products/all/1"
                                        class="dropdown-toggle dropdown-link"
                                        data-toggle="dropdown">
                                         <span><spring:message code="menu.collection"/></span>
@@ -274,7 +274,7 @@
                                                     <c:forEach items="${applicationScope.womensCategories}"
                                                                var="womenCategory">
                                                         <li class="list-unstyled li-sub-mega">
-                                                            <a href="/products/categoryId/${womenCategory.id}?offset=0&maxResult=9">
+                                                            <a href="/products/category/${womenCategory.id}/offset/1">
                                                                 <c:choose>
                                                                     <c:when test="${cookie.locale.value=='ru'}">
                                                                         ${womenCategory.categoryName_ru}                                                                    </c:when>
@@ -304,7 +304,7 @@
                                                     <c:forEach items="${applicationScope.mensCategories}"
                                                                var="menCategory">
                                                         <li class="list-unstyled li-sub-mega">
-                                                            <a href="/products/categoryId/${menCategory.id}?offset=0&maxResult=9">
+                                                            <a href="/products/category/${menCategory.id}/offset/1">
 
                                                                     <%--<span class="megamenu-label new-label">Նոր</span>--%>
                                                                 <c:choose>
@@ -331,7 +331,7 @@
                                                     <c:forEach items="${applicationScope.otherCategories}"
                                                                var="otherCategory">
                                                         <li class="list-unstyled li-sub-mega">
-                                                            <a href="/products/categoryId/${otherCategory.id}?offset=0&maxResult=9">
+                                                            <a href="/products/category/${otherCategory.id}/offset/1">
                                                                 <c:choose>
                                                                     <c:when test="${cookie.locale.value=='ru'}">
                                                                         ${otherCategory.categoryName_ru}                                                                    </c:when>
@@ -424,7 +424,7 @@
 
 
                                 <li class="dropdown mega-menu">
-                                    <a href="sample-blog-full-width.html" class="dropdown-toggle dropdown-link"
+                                    <a href="#" class="dropdown-toggle dropdown-link"
                                        data-toggle="dropdown">
                                         <span><spring:message code="menu.services"/> </span>
 
@@ -477,7 +477,7 @@
 
 
                                 <li class="nav-item dropdown">
-                                    <a href="about-us.html" class="dropdown-toggle dropdown-link"
+                                    <a href="#" class="dropdown-toggle dropdown-link"
                                        data-toggle="dropdown">
 
                                         <span><spring:message code="menu.aboutus"/> </span>

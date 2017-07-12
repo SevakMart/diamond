@@ -71,8 +71,8 @@
                                     </li>
                                     <li class="clearfix"></li>
                                     <li class="">
-                                        <label class="control-label" for="message"><spring:message code="messText"/> <span class="req">*</span></label>
-                                        <textarea id="message" rows="5" class="form-control" name="message"></textarea>
+                                        <label class="control-label" for="textMessage"><spring:message code="messText"/> <span class="req">*</span></label>
+                                        <textarea id="textMessage" rows="5" class="form-control" name="textMessage"></textarea>
                                     </li>
                                     <li class="clearfix"></li>
                                     <li class="unpadding-top">

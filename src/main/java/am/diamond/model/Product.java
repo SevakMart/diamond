@@ -6,6 +6,7 @@ import org.hibernate.annotations.LazyCollection;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 import java.util.Set;
 
@@ -51,6 +52,10 @@ public class Product implements Serializable {
 
     @OneToMany(mappedBy = "ordersProduct", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     private Set<Order> orders;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "adding_date")
+    private Date addingDate;
 
     public Long getId() {
         return id;
@@ -162,5 +167,13 @@ public class Product implements Serializable {
 
     public void setDiscount(int discount) {
         this.discount = discount;
+    }
+
+    public Date getAddingDate() {
+        return addingDate;
+    }
+
+    public void setAddingDate(Date addingDate) {
+        this.addingDate = addingDate;
     }
 }

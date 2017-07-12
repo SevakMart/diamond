@@ -24,7 +24,7 @@
                 <div itemprop="breadcrumb" class="container">
                     <div class="row">
                         <div class="col-md-24">
-                            <a href="../index.html" class="homepage-link" title="Back to the frontpage"><spring:message code="home.page"/> </a>
+                            <a href="/" class="homepage-link" title="Back to the frontpage"><spring:message code="home.page"/> </a>
 
 
                             <span>/</span>

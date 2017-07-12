@@ -13,17 +13,7 @@ import java.util.Set;
  * Created by sevak on 6/3/17.
  */
 @Service
-public class ProductServiceImpl implements ProductService {
-
-    public static final String RINGS = "rings";
-
-    public static final String BRACELETS = "bracelets";
-
-    public static final String NECKLACES= "necklaces";
-
-    public static final String EARRINGS = "earrings";
-
-    public static final Integer RANDOM_PRODUCTS_COUNT = 8;
+public class ProductServiceImpl implements ProductService, ProductServiceConstants {
 
     @Autowired
     private ProductDao productDao;
@@ -54,14 +44,27 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getPaginatedList(Integer offset, Integer maxResult) {
-        return productDao.getPaginatedList(offset, maxResult);
+    public List<Product> getPaginatedList(Integer pageNumber) {
+        Integer offset = calculateOffset(pageNumber);
+        return productDao.getPaginatedList(offset, MAX_RESULT);
     }
 
     @Override
-    public Long count() {
-        return productDao.count();
+    public Double count() {
+        return Math.ceil(productDao.count().doubleValue() / ProductServiceConstants.MAX_RESULT.doubleValue());
     }
+
+    public Double count(Long categoryId) {
+        return Math.ceil(productDao.count(categoryId).doubleValue() / ProductServiceConstants.MAX_RESULT.doubleValue());
+    }
+
+    public Double count(Double startPrice, Double endPrice) {
+        return Math.ceil(productDao.count(startPrice, endPrice).doubleValue() / ProductServiceConstants.MAX_RESULT.doubleValue());
+    }
+
+    @Override
+    public Double count(String categoryType) {
+        return Math.ceil(productDao.count(categoryType).doubleValue() / ProductServiceConstants.MAX_RESULT.doubleValue());    }
 
     @Override
     public List<Product> getProductsByMetalId(int metalId) {
@@ -69,27 +72,46 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public List<Product> getPaginatedList(Integer offset, Integer maxResult, Long categoryId) {
-        return productDao.getPaginatedList(offset, maxResult, categoryId);
+    public List<Product> getPaginatedList(Integer pageNumber, Long categoryId) {
+        Integer offset = calculateOffset(pageNumber);
+        return productDao.getPaginatedList(offset, MAX_RESULT, categoryId);
     }
 
     @Override
-    public List<Product> getCollection(Integer offset, Integer maxResult, String collection) {
-        if (NECKLACES.equals(collection)) return productDao.getNecklacesAndChains(offset, maxResult);
-        if (RINGS.equals(collection)) return productDao.getRings(offset, maxResult);
-        if (BRACELETS.equals(collection)) return productDao.getBracelets(offset, maxResult);
+    public List<Product> getCollection(Integer pageNumber, String collection) {
+        Integer offset = calculateOffset(pageNumber);
+        if (NECKLACES.equals(collection)) return productDao.getNecklacesAndChains(offset, MAX_RESULT);
+        if (RINGS.equals(collection)) return productDao.getRings(offset, MAX_RESULT);
+        if (BRACELETS.equals(collection)) return productDao.getBracelets(offset, MAX_RESULT);
         if (EARRINGS.equals(collection))
-            return productDao.getPaginatedList(offset, maxResult, CategoryConstants.EARRINGS);
+            return productDao.getPaginatedList(offset, MAX_RESULT, CategoryConstants.EARRINGS);
         throw new IllegalArgumentException();
     }
 
     @Override
-    public List<Product> getProductsByPrice(double startPrice, double endPrice, Integer offset, Integer maxResult) {
-        return productDao.getProductsByPriceRange(startPrice, endPrice, offset, maxResult);
+    public List<Product> getProductsByPrice(double startPrice, double endPrice, Integer pageNumber) {
+        Integer offset = calculateOffset(pageNumber);
+        return productDao.getProductsByPriceRange(startPrice, endPrice, offset, MAX_RESULT);
     }
 
     @Override
     public List<Product> getRandomDiscountedProducts() {
         return productDao.getRandomDiscountedProducts(RANDOM_PRODUCTS_COUNT);
+    }
+
+    @Override
+    public List<Product> getSortedProductsByPrice(String sortingMethod, Integer pageNumber) {
+        Integer offset = calculateOffset(pageNumber);
+        return productDao.getProductsSortedByPrice(sortingMethod, offset, MAX_RESULT);
+    }
+
+    @Override
+    public List<Product> getProductsSortedByDate(String sortingMethod, Integer pageNumber) {
+        Integer offset = calculateOffset(pageNumber);
+        return productDao.getProductsSortedByDate(sortingMethod, offset, MAX_RESULT);
+    }
+
+    private int calculateOffset(Integer offset) {
+        return (offset - 1) * MAX_RESULT - 1;
     }
 }

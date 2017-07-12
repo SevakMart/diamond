@@ -28,7 +28,7 @@
                                     <div class="home_collections_item_inner">
                                         <div class="collection-details">
 
-                                            <a href="/products/collection/bracelets?offset=0&maxResult=9"
+                                            <a href="/products/collection/bracelets/offset/1"
                                                title="Browse our Bracelets">
 
                                                 <img src="https://cdn.shopify.com/s/files/1/0908/7252/collections/3_large.png?v=1435637345"
@@ -38,10 +38,10 @@
                                         </div>
                                         <div class="hover-overlay">
                                                             <span class="col-name"><a
-                                                                    href="/products/collection/bracelets?offset=0&maxResult=9"><spring:message
+                                                                    href="/products/collection/bracelets/offset/1"><spring:message
                                                                     code="collection.bracelets"/></a></span>
                                             <div class="collection-action">
-                                                <a href="/products/collection/bracelets?offset=0&maxResult=9"><spring:message
+                                                <a href="/products/collection/bracelets/offset/1"><spring:message
                                                         code="seeallcollection"/></a>
                                             </div>
                                         </div>
@@ -53,7 +53,7 @@
                                     <div class="home_collections_item_inner">
                                         <div class="collection-details">
 
-                                            <a href="/products/collection/earrings?offset=0&maxResult=9"
+                                            <a href="/products/collection/earrings/offset/1"
                                                title="Browse our Earrings">
 
                                                 <img src="https://cdn.shopify.com/s/files/1/0908/7252/collections/2_large.png?v=1435637330"
@@ -63,10 +63,10 @@
                                         </div>
                                         <div class="hover-overlay">
                                                             <span class="col-name"><a
-                                                                    href="/products/collection/earrings?offset=0&maxResult=9"><spring:message
+                                                                    href="/products/collection/earrings/offset/1"><spring:message
                                                                     code="collection.earrings"/> </a></span>
                                             <div class="collection-action">
-                                                <a href="/products/collection/earrings?offset=0&maxResult=9"><spring:message
+                                                <a href="/products/collection/earrings/offset/1"><spring:message
                                                         code="seeallcollection"/></a>
                                             </div>
                                         </div>
@@ -78,7 +78,7 @@
                                     <div class="home_collections_item_inner">
                                         <div class="collection-details">
 
-                                            <a href="/products/collection/necklaces?offset=0&maxResult=9"
+                                            <a href="/products/collection/necklaces/offset/1"
                                                title="Browse our Necklaces">
 
                                                 <img src="https://cdn.shopify.com/s/files/1/0908/7252/collections/1_79ec3305-7c83-4daa-804c-fac19b2d1b7b_large.png?v=1435637085"
@@ -88,10 +88,10 @@
                                         </div>
                                         <div class="hover-overlay">
                                                             <span class="col-name"><a
-                                                                    href="/products/collection/necklaces?offset=0&maxResult=9"><spring:message
+                                                                    href="/products/collection/necklaces/offset/1"><spring:message
                                                                     code="collection.chainsandnecklaces"/> </a></span>
                                             <div class="collection-action">
-                                                <a href="/products/collection/necklaces?offset=0&maxResult=9"><spring:message
+                                                <a href="/products/collection/necklaces/offset/1"><spring:message
                                                         code="seeallcollection"/></a>
                                             </div>
                                         </div>
@@ -103,7 +103,7 @@
                                     <div class="home_collections_item_inner">
                                         <div class="collection-details">
 
-                                            <a href="/products/collection/rings?offset=0&maxResult=9"
+                                            <a href="/products/collection/rings/offset/1"
                                                title="Browse our Rings">
 
                                                 <img src="https://cdn.shopify.com/s/files/1/0908/7252/collections/4_large.png?v=1435637313"
@@ -113,10 +113,10 @@
                                         </div>
                                         <div class="hover-overlay">
                                                             <span class="col-name"><a
-                                                                    href="/products/collection/rings?offset=0&maxResult=9"><spring:message
+                                                                    href="/products/collection/rings/offset/1"><spring:message
                                                                     code="collection.rings"/> </a></span>
                                             <div class="collection-action">
-                                                <a href="/products/collection/rings?offset=0&maxResult=9"><spring:message
+                                                <a href="/products/collection/rings/offset/1"><spring:message
                                                         code="seeallcollection"/> </a>
                                             </div>
                                         </div>

@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: sevak
@@ -37,7 +38,7 @@
                     <div id="sortButtonWarper" class="dropdown-toggle"
                          data-toggle="dropdown">
                         <button id="sortButton">
-                            <span class="name">Սորտավորել</span><i
+                            <span class="name"><spring:message code="sortby"/></span><i
                                 class="fa fa-caret-down"></i>
                         </button>
                         <i class="sub-dropdown1"></i>
@@ -47,17 +48,11 @@
                         <ul id="sortForm"
                             class="list-unstyled option-set text-left list-styled"
                             data-option-key="sortBy">
-                            <li class="sort manual"><a href="#">Սորտավորել</a></li>
-                            <li class="sort price-ascending"><a href="#">Գները: Ցածրից
-                                բարձր</a></li>
-                            <li class="sort price-descending"><a href="#">Գները: Բարձրից
-                                ցածր</a></li>
-                            <li class="sort created-ascending"><a href="#">Հնից Նոր</a>
+                            <li class="sort price-ascending"><a href="/products/sort/price/asc/offset/1"><spring:message code="sort.price.asc"/> </a></li>
+                            <li class="sort price-descending"><a href="/products/sort/price/desc/offset/1"><spring:message code="sort.price.desc"/></a></li>
+                            <li class="sort created-ascending"><a href="#"><spring:message code="sort.oldtonew"/></a>
                             </li>
-                            <li class="sort created-descending"><a href="#">Նորից
-                                Հին</a></li>
-                            <li class="sort best-selling"><a href="#">Ամենաշատ
-                                վաճառված</a></li>
+                            <li class="sort created-descending"><a href="#"><spring:message code="sort.newtoold"/></a></li>
                         </ul>
                     </div>
                 </div>
@@ -69,7 +64,7 @@
 
     <div id="sandBox-wrapper" class="group-product-item row collection-full">
         <ul id="sandBox" class="list-unstyled">
-            <c:forEach items="${sessionScope.products}" var="product">
+            <c:forEach items="${products}" var="product">
                 <li class="element  no_full_width" data-alpha="Curabitur cursus dignis"
                     data-price="20000">
                     <ul class="row-container list-unstyled clearfix">
@@ -77,7 +72,8 @@
                             <a href="#" class="container_item" style="height: 260px">
                                 <c:set var="images" value="${product.productImages}"/>
                                 <img src="/products/${images[0].imagePath}" width="100%"
-                                     class="img-responsive" alt="Curabitur cursus dignis" style="object-fit: cover;height: 100%;"/>
+                                     class="img-responsive" alt="Curabitur cursus dignis"
+                                     style="object-fit: cover;height: 100%;"/>
                             </a>
 
                             <div class="hbw">
@@ -165,6 +161,16 @@
 
 
         </ul>
+        <div>
+            <ul class="pagination">
+                <li><a href="#">&laquo;</a></li>
+                <c:forEach var="i" begin="1" end="${pageCount}">
+                    <%--<li><a href="${requestScope['javax.servlet.forward.request_uri']}+${i}">${i}</a></li>--%>
+                    <li><a href="${shortUrl}/${i}">${i}</a></li>
+                </c:forEach>
+                <li><a href="/products/getAllProducts/6">&raquo;</a></li>
+            </ul>
+        </div>
     </div>
 
 

@@ -32,7 +32,6 @@ public class RegisterController {
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     public String register(@Valid User user, BindingResult bindingResult) {
-
         if (!bindingResult.hasErrors()) {
             user.setUser_type(UserType.USER);
             userService.create(user);

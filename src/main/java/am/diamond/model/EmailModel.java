@@ -2,7 +2,6 @@ package am.diamond.model;
 
 import org.springframework.stereotype.Component;
 
-import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -20,9 +19,8 @@ public class EmailModel {
     @Size(min = 2, max = 20, message = "please input valid email")
     private String senderEmail;
 
-    @NotNull
-    @Min(value = 2, message = "message field is required")
-    private String message;
+    @Size(min = 2, message = "message field is required")
+    private String textMessage;
 
     @NotNull
     @Size(min = 2, max = 20, message = "subject is very short or very long")
@@ -44,12 +42,12 @@ public class EmailModel {
         this.senderEmail = senderEmail;
     }
 
-    public String getMessage() {
-        return message;
+    public String getTextMessage() {
+        return textMessage;
     }
 
-    public void setMessage(String message) {
-        this.message = message;
+    public void setTextMessage(String textMessage) {
+        this.textMessage = textMessage;
     }
 
     public String getSubject() {
@@ -68,14 +66,14 @@ public class EmailModel {
         EmailModel that = (EmailModel) o;
 
         if (senderName != null ? !senderName.equals(that.senderName) : that.senderName != null) return false;
-        return (senderEmail != null ? senderEmail.equals(that.senderEmail) : that.senderEmail == null) && (message != null ? message.equals(that.message) : that.message == null) && (subject != null ? subject.equals(that.subject) : that.subject == null);
+        return (senderEmail != null ? senderEmail.equals(that.senderEmail) : that.senderEmail == null) && (textMessage != null ? textMessage.equals(that.textMessage) : that.textMessage == null) && (subject != null ? subject.equals(that.subject) : that.subject == null);
     }
 
     @Override
     public int hashCode() {
         int result = senderName != null ? senderName.hashCode() : 0;
         result = 31 * result + (senderEmail != null ? senderEmail.hashCode() : 0);
-        result = 31 * result + (message != null ? message.hashCode() : 0);
+        result = 31 * result + (textMessage != null ? textMessage.hashCode() : 0);
         result = 31 * result + (subject != null ? subject.hashCode() : 0);
         return result;
     }
@@ -85,7 +83,7 @@ public class EmailModel {
         return "EmailModel{" +
                 "senderName='" + senderName + '\'' +
                 ", senderEmail='" + senderEmail + '\'' +
-                ", message='" + message + '\'' +
+                ", textMessage='" + textMessage + '\'' +
                 ", subject='" + subject + '\'' +
                 '}';
     }
