@@ -39,4 +39,6 @@ public interface ProductService extends Creatable<Product>, Updateable<Product>,
     List<Product> getSortedProductsByPrice(String sortingMethod, Integer pageNumber);
 
     List<Product> getProductsSortedByDate(String sortingMethod, Integer pageNumber);
+
+    List<Product> getNewestProducts();
 }

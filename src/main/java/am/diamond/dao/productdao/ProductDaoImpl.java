@@ -49,7 +49,9 @@ public class ProductDaoImpl implements ProductDao {
     @Override
     public Product get(long id) {
         Session session = sessionFactory.openSession();
-        return (Product) session.get(Product.class, id);
+        Product product = (Product) session.get(Product.class, id);
+        session.close();
+        return product;
     }
 
     @Override
@@ -266,4 +268,16 @@ public class ProductDaoImpl implements ProductDao {
         session.close();
         return list;
     }
+
+    @Override
+    public List<Product> getNewestProducts() {
+        Session session = sessionFactory.openSession();
+        List<Product> list = session.createCriteria(Product.class)
+                .addOrder(Order.asc("addingDate"))
+                .setMaxResults(ProjectConstants.MAX_NEW_PRODUCTS).list();
+        session.close();
+        return list;
+    }
+
+
 }

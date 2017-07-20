@@ -111,7 +111,13 @@ public class ProductServiceImpl implements ProductService, ProductServiceConstan
         return productDao.getProductsSortedByDate(sortingMethod, offset, MAX_RESULT);
     }
 
+    @Override
+    public List<Product> getNewestProducts() {
+        return productDao.getNewestProducts();
+    }
+
     private int calculateOffset(Integer offset) {
         return (offset - 1) * MAX_RESULT - 1;
     }
+
 }

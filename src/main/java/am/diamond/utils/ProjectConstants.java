@@ -9,4 +9,11 @@ public interface ProjectConstants {
 
     String DESC_SORT = "desc";
 
+    Integer MAX_NEW_PRODUCTS = 6;
+
+    String DISCOUNTED_PRODUCTS = "discounted";
+
+    String NEWEST_PRODUCTS = "newest";
+
+
 }

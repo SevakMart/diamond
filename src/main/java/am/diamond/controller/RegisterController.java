@@ -35,7 +35,7 @@ public class RegisterController {
         if (!bindingResult.hasErrors()) {
             user.setUser_type(UserType.USER);
             userService.create(user);
-            return "home.view";
+            return "redirect:/showRegister";
         }else
         return "register.view";
     }

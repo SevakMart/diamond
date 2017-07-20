@@ -1,4 +1,5 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: sevak
@@ -29,70 +30,33 @@
             <div class="row">
 
 
-                <div id="col-main" class="product-page col-xs-24 col-sm-18 no_full_width have-left-slidebar">
+                <div id="col-main" class="product-page col-xs-24 col-sm-18 no_full_width have-left-slidebar"
+                     style="width: 100%">
                     <div itemscope itemtype="http://schema.org/Product">
                         <meta itemprop="url" content="/products/product-with-left-slidebar"/>
 
                         <div id="product" class="content clearfix">
 
                             <div id="product-image" class="product-image row no_full_width col-sm-12">
-
+                                <c:set var="images" value="${product.productImages}"/>
                                 <div class="image featured  not-animated" data-animate="fadeInUp">
-
-
-                                    <img src="https://cdn.shopify.com/s/files/1/0908/7252/products/12_fd5d3707-e135-43bc-bfa9-abe5f518c260_1024x1024.jpg?v=1435833580"
-                                         alt="Product with left sidebar"/>
-
+                                    <img src="/products/${images[0].imagePath}"/>
                                 </div>
 
                                 <div id="gallery_main"
                                      class="product-image-thumb thumbs no_full_width fix-width">
                                     <ul class="slide-product-image">
-
-                                        <li class="image">
-                                            <a href="https://cdn.shopify.com/s/files/1/0908/7252/products/9_29fe62cc-0d0f-4cbc-b09a-6d6a8d7c2431_1024x1024.jpg?v=1435833580"
-                                               class="cloud-zoom-gallery active">
-                                                <img src="https://cdn.shopify.com/s/files/1/0908/7252/products/9_29fe62cc-0d0f-4cbc-b09a-6d6a8d7c2431_compact.jpg?v=1435833580"
-                                                     alt="Product with left sidebar"/>
-                                            </a>
-                                        </li>
-
-                                        <li class="image">
-                                            <a href="https://cdn.shopify.com/s/files/1/0908/7252/products/12_fd5d3707-e135-43bc-bfa9-abe5f518c260_1024x1024.jpg?v=1435833580"
-                                               class="cloud-zoom-gallery">
-                                                <img src="https://cdn.shopify.com/s/files/1/0908/7252/products/12_fd5d3707-e135-43bc-bfa9-abe5f518c260_compact.jpg?v=1435833580"
-                                                     alt="Product with left sidebar"/>
-                                            </a>
-                                        </li>
-
+                                        <c:forEach items="${images}" var="image">
+                                            <li class="image">
+                                                <a href="/products/${image.imagePath}"
+                                                   class="cloud-zoom-gallery active">
+                                                    <img src="/products/${image.imagePath}"
+                                                         alt="Product with left sidebar"/>
+                                                </a>
+                                            </li>
+                                        </c:forEach>
                                     </ul>
                                 </div>
-
-
-                                <div id="gallery_main"
-                                     class="visible-xs product-image-thumb thumbs mobile_full_width fix-width">
-                                    <ul class="slide-product-image">
-
-                                        <li class="image">
-                                            <a href="https://cdn.shopify.com/s/files/1/0908/7252/products/9_29fe62cc-0d0f-4cbc-b09a-6d6a8d7c2431_1024x1024.jpg?v=1435833580"
-                                               class="cloud-zoom-gallery active">
-                                                <img src="https://cdn.shopify.com/s/files/1/0908/7252/products/9_29fe62cc-0d0f-4cbc-b09a-6d6a8d7c2431_compact.jpg?v=1435833580"
-                                                     alt="Product with left sidebar"/>
-                                            </a>
-                                        </li>
-
-                                        <li class="image">
-                                            <a href="https://cdn.shopify.com/s/files/1/0908/7252/products/12_fd5d3707-e135-43bc-bfa9-abe5f518c260_1024x1024.jpg?v=1435833580"
-                                               class="cloud-zoom-gallery">
-                                                <img src="https://cdn.shopify.com/s/files/1/0908/7252/products/12_fd5d3707-e135-43bc-bfa9-abe5f518c260_compact.jpg?v=1435833580"
-                                                     alt="Product with left sidebar"/>
-                                            </a>
-                                        </li>
-
-                                    </ul>
-                                </div>
-
-
                                 <div id="detail-right-column" class="right-coloum  not-animated"
                                      data-animate="fadeInLeft">
                                     <script type="text/javascript"
@@ -113,14 +77,8 @@
                                 <div id="product-header" class="clearfix">
                                     <div id="product-info-left">
                                         <div class="description">
-                                            <span>Նկարագրություն</span>
+                                            <span><spring:message code="description"/></span>
                                             <p>${product.description}</p>
-                                        </div>
-                                        <div class="relative">
-                                            <ul class="list-unstyled">
-
-
-                                            </ul>
                                         </div>
                                     </div>
                                     <div id="product-info-right">
@@ -132,235 +90,71 @@
                                             <link itemprop="availability" href="http://schema.org/InStock"/>
 
 
-                                            <form action="https://cs-utc-jewelry.myshopify.com/cart/add"
+                                            <form action="/orders/save"
                                                   method="post" class="variants" id="product-actions">
+                                                <input type="hidden" name="productId" value="${product.id}">
                                                 <div id="product-actions-1293241795" class="options clearfix">
-
-
-                                                    <style>
-                                                        label[for="product-select-option-0"] {
-                                                            display: none;
-                                                        }
-
-                                                        #product-select-option-0 {
-                                                            display: none;
-                                                        }
-
-                                                        #product-select-option-0 + .custom-style-select-box {
-                                                            display: none !important;
-                                                        }
-                                                    </style>
-                                                    <script>$(window).load(function () {
-                                                        $('.selector-wrapper:eq(0)').hide();
-                                                    });</script>
-
-
                                                     <div class="swatch color clearfix" data-option-index="0">
-                                                        <div class="header">Ոսկու գույնը</div>
-
-
-                                                        <div data-value="black"
-                                                             class="swatch-element color black available">
-
-                                                            <div class="tooltip">Կարմիր</div>
-
-                                                            <input id="swatch-0-black" type="radio"
-                                                                   name="option-0" value="black" checked/>
-
-                                                            <label for="swatch-0-black"
-                                                                   style="background-color: black; background-image: url(https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/black.png?1065742395697979892)">
-                                                                <img class="crossed-out"
-                                                                     src="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/soldout.png?1065742395697979892"
-                                                                     alt=""/>
-                                                            </label>
-
-                                                        </div>
-
-
-                                                        <script>
-                                                            jQuery('.swatch[data-option-index="0"] .black').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
-                                                        </script>
-
-
-                                                        <div data-value="white"
-                                                             class="swatch-element color white available">
-
-                                                            <div class="tooltip">Սպիտակ</div>
-
-                                                            <input id="swatch-0-white" type="radio"
-                                                                   name="option-0" value="white"/>
-
-                                                            <label for="swatch-0-white"
-                                                                   style="background-color: white; background-image: url(https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/white.png?1065742395697979892)">
-                                                                <img class="crossed-out"
-                                                                     src="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/soldout.png?1065742395697979892"
-                                                                     alt=""/>
-                                                            </label>
-
-                                                        </div>
-
-
-                                                        <script>
-                                                            jQuery('.swatch[data-option-index="0"] .white').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
-                                                        </script>
-
-
-                                                        <script>
-                                                            jQuery('.swatch[data-option-index="0"] .black').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
-                                                        </script>
-
-
-                                                        <script>
-                                                            jQuery('.swatch[data-option-index="0"] .white').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
-                                                        </script>
-
-
+                                                        <ul>
+                                                            <li>
+                                                                <div><spring:message
+                                                                        code="metal.type"/></div>
+                                                            </li>
+                                                            <li>
+                                                                <div>${product.metal.metalType}(${product.metal.metalSample})</div>
+                                                            </li>
+                                                        </ul>
                                                     </div>
-
-
-                                                    <style>
-                                                        label[for="product-select-option-1"] {
-                                                            display: none;
-                                                        }
-
-                                                        #product-select-option-1 {
-                                                            display: none;
-                                                        }
-
-                                                        #product-select-option-1 + .custom-style-select-box {
-                                                            display: none !important;
-                                                        }
-                                                    </style>
-                                                    <script>$(window).load(function () {
-                                                        $('.selector-wrapper:eq(1)').hide();
-                                                    });</script>
-
-
                                                     <div class="swatch clearfix" data-option-index="1">
-                                                        <div class="header">Մատանու չափերը</div>
+                                                        <div class="header">patveri qanak@</div>
 
 
                                                         <div data-value="small"
                                                              class="swatch-element small available">
-
-                                                            <input id="swatch-1-small" type="radio"
-                                                                   name="option-1" value="small" checked/>
-
-                                                            <label for="swatch-1-small">
-                                                                16
-                                                                <img class="crossed-out"
-                                                                     src="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/soldout.png?1065742395697979892"
-                                                                     alt=""/>
-                                                            </label>
+                                                            <select name="size">
+                                                                <option value="17">17</option>
+                                                                <option value="15">15</option>
+                                                                <option value="16">16</option>
+                                                                <option value="18">18</option>
+                                                            </select>
 
                                                         </div>
-
-
-                                                        <script>
-                                                            jQuery('.swatch[data-option-index="1"] .small').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
-                                                        </script>
-
-
-                                                        <script>
-                                                            jQuery('.swatch[data-option-index="1"] .small').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
-                                                        </script>
-
-
-                                                        <div data-value="medium"
-                                                             class="swatch-element medium available">
-
-                                                            <input id="swatch-1-medium" type="radio"
-                                                                   name="option-1" value="medium"/>
-
-                                                            <label for="swatch-1-medium">
-                                                                18
-                                                                <img class="crossed-out"
-                                                                     src="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/soldout.png?1065742395697979892"
-                                                                     alt=""/>
-                                                            </label>
-
-                                                        </div>
-
-
-                                                        <script>
-                                                            jQuery('.swatch[data-option-index="1"] .medium').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
-                                                        </script>
-
-
-                                                        <script>
-                                                            jQuery('.swatch[data-option-index="1"] .medium').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
-                                                        </script>
-
-                                                        <div data-value="medium"
-                                                             class="swatch-element medium available">
-
-                                                            <input id="swatch-2-medium" type="radio"
-                                                                   name="option-1" value="medium"/>
-
-                                                            <label for="swatch-1-medium">
-                                                                20
-                                                                <img class="crossed-out"
-                                                                     src="https://cdn.shopify.com/s/files/1/0908/7252/t/2/assets/soldout.png?1065742395697979892"
-                                                                     alt=""/>
-                                                            </label>
-                                                            <script>
-                                                                jQuery('.swatch[data-option-index="1"] .medium').removeClass('soldout').addClass('available').find(':radio').removeAttr('disabled');
-                                                            </script>
-                                                        </div>
-
                                                     </div>
-
-
-                                                    <div class="variants-wrapper clearfix">
-                                                        <select id="product-select-1293241795" name="id"
-                                                                style="display: none;">
-
-                                                            <option selected="selected" value="3947658499">black
-                                                                / small
-                                                            </option>
-
-                                                            <option value="3947658563">white / small</option>
-
-                                                            <option value="3947658627">black / medium</option>
-
-                                                            <option value="3947658691">white / medium</option>
-
-                                                        </select>
-                                                    </div>
-
                                                     <div class="quantity-wrapper clearfix">
                                                         <label class="wrapper-title">Զարդի չափսերը</label>
                                                         <div class="wrapper">
-                                                            <input id="quantity" type="text" name="quantity"
+                                                            <input id="quantity" type="text" name="count"
                                                                    value="1" maxlength="5" size="5"
                                                                    class="item-quantity"/>
                                                             <span class="qty-group">
-                        <span class="qty-wrapper">
-                          <span class="qty-up btooltip" data-toggle="tooltip" data-placement="top" title="Increase"
-                                data-src="#quantity">
-                            <i class="fa fa-caret-right"></i>
-                          </span>
+                                                               <span class="qty-wrapper">
+                                                                 <span class="qty-up btooltip" data-toggle="tooltip"
+                                                                       data-placement="top" title="Increase"
+                                                                       data-src="#quantity">
+                                                                          <i class="fa fa-caret-right"></i>
+                                                                                                                   </span>
 
-                          <span class="qty-down btooltip" data-toggle="tooltip" data-placement="top" title="Decrease"
-                                data-src="#quantity">
-                            <i class="fa fa-caret-left"></i>
-                          </span>
-                        </span>
-                      </span>
+                                                                   <span class="qty-down btooltip" data-toggle="tooltip"
+                                                                         data-placement="top" title="Decrease"
+                                                                         data-src="#quantity">
+                                                                          <i class="fa fa-caret-left"></i>
+                                                                     </span>
+                                                                         </span>
+                                                            </span>
                                                         </div>
                                                     </div>
-
                                                     <div id="purchase-1293241795">
                                                         <div class="detail-price" itemprop="price">
-                                                            <span class='money'>$200.00</span>
+                                                            <ul>
+                                                                <li><span><spring:message code="price"/></span></li>
+                                                                <li><span>${product.price}$</span></li>
+                                                            </ul>
                                                         </div>
                                                     </div>
 
                                                     <div class="others-bottom clearfix">
-                                                        <button id="add-to-cart" class="btn btn-1 add-to-cart"
-                                                                data-parent=".product-information" type="submit"
-                                                                name="add">Ավելացնել զամբյուղի մեջ
-                                                        </button>
+                                                        <button  class="btn" type="submit">order</button>
+
                                                     </div>
 
                                                 </div>
@@ -372,214 +166,12 @@
 
                                                 <a class="wish-list"
                                                    href="https://cs-utc-jewelry.myshopify.com/account/login"><i
-                                                        class="fa fa-heart"></i><spring:message code="menu.services.majewelry"/> </a><br><br>
-
-
-                                                <a href="mailto:info@yourdomain.com"><i
-                                                        class="fa fa-envelope"></i><spring:message code="sendEmail"/> </a>
-
-
+                                                        class="fa fa-heart"></i><spring:message
+                                                        code="menu.services.majewelry"/> </a>
                                             </div>
 
 
                                         </div>
-                                        <script type="text/javascript">
-
-                                            // initialize multi selector for product
-                                            $(window).load(function () {
-
-                                                /* selectCallback */
-                                                var selectOptionsCallback = function (variant, selector) {
-
-                                                    if (variant) {
-                                                        var form = jQuery('#' + selector.domIdPrefix).closest('form');
-                                                        for (var i = 0, length = variant.options.length; i < length; i++) {
-                                                            var radioButton = form.find('.swatch[data-option-index="' + i + '"] :radio[value="' + variant.options[i] + '"]');
-                                                            if (radioButton.size()) {
-                                                                radioButton.get(0).checked = true;
-                                                            }
-                                                        }
-                                                    }
-
-                                                    if (variant && variant.featured_image) {
-                                                        var newImage = variant.featured_image; // New image object.
-                                                        var mainImageDomEl = jQuery('.featured img')[0]; // DOM element of main image we need to swap.
-                                                        Shopify.Image.switchImage(newImage, mainImageDomEl, switchImage); // Define switchImage (the callback) in your theme's JavaScript file.
-                                                    }
-
-                                                    var add_to_cart = '#add-to-cart';
-                                                    var $price = '#purchase-' + selector.product.id.toString() + ' .detail-price';
-                                                    if (variant && variant.available) {
-                                                        // selected a valid variant
-                                                        $(add_to_cart).removeClass('disabled').removeAttr('disabled'); // remove unavailable class from add-to-cart button, and re-enable button
-
-                                                        if (variant.compare_at_price == null) {
-                                                            $($price).html('<span class="price">' + Shopify.formatMoney(variant.price, "<span class='money'>${{amount}}</span>") + '</span>');
-
-
-                                                            /* Update currency */
-                                                            currenciesCallbackSpecial('#product-information span.money');
-
-                                                        } else {
-                                                            $($price).html('<span class="price_sale">' + Shopify.formatMoney(variant.price, "<span class='money'>${{amount}}</span>") + '</span> <span class="dash">/</span> <del class="price_compare">' + Shopify.formatMoney(variant.compare_at_price, "<span class='money'>${{amount}}</span>") + '</del>');
-
-
-                                                            /* Update currency */
-                                                            currenciesCallbackSpecial('#product-information span.money');
-
-                                                        }
-                                                    } else {
-                                                        $(add_to_cart).addClass('disabled').attr('disabled', 'disabled'); // set add-to-cart button to unavailable class and disable button
-                                                        var message = variant ? "Sold Out" : "Unavailable";
-                                                        $($price).html('<span class="unavailable">' + message + '</span>');
-                                                    }
-                                                };
-
-                                                new Shopify.OptionSelectors("product-select-1293241795", {
-                                                    product: {
-                                                        "id": 1293241795,
-                                                        "title": "Product with left sidebar",
-                                                        "handle": "product-with-left-slidebar",
-                                                        "description": "\u003cp\u003eNam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis amet voluptas assumenda est, omnis dolor repellendus quis nostrum.\u003c\/p\u003e\n\u003cp\u003eTemporibus autem quibusdam et aut officiis debitis aut rerum dolorem necessitatibus saepe eveniet ut et neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, ut aliquid ex ea commodi consequatur.\u003c\/p\u003e",
-                                                        "published_at": "2015-06-29T00:22:00-04:00",
-                                                        "created_at": "2015-06-29T00:22:43-04:00",
-                                                        "vendor": "Vendor 3",
-                                                        "type": "Sweaters Wear",
-                                                        "tags": ["$100 - $200", "Best Seller", "Green", "M", "Red", "S", "Sale Off", "Under $100"],
-                                                        "price": 20000,
-                                                        "price_min": 20000,
-                                                        "price_max": 20000,
-                                                        "available": true,
-                                                        "price_varies": false,
-                                                        "compare_at_price": 30000,
-                                                        "compare_at_price_min": 30000,
-                                                        "compare_at_price_max": 30000,
-                                                        "compare_at_price_varies": false,
-                                                        "variants": [{
-                                                            "id": 3947658499,
-                                                            "title": "black \/ small",
-                                                            "option1": "black",
-                                                            "option2": "small",
-                                                            "option3": null,
-                                                            "sku": "",
-                                                            "requires_shipping": true,
-                                                            "taxable": true,
-                                                            "featured_image": {
-                                                                "id": 2792669315,
-                                                                "product_id": 1293241795,
-                                                                "position": 2,
-                                                                "created_at": "2015-06-29T03:14:00-04:00",
-                                                                "updated_at": "2015-07-02T06:39:40-04:00",
-                                                                "src": "https:\/\/cdn.shopify.com\/s\/files\/1\/0908\/7252\/products\/12_fd5d3707-e135-43bc-bfa9-abe5f518c260.jpg?v=1435833580",
-                                                                "variant_ids": [3947658499, 3947658627]
-                                                            },
-                                                            "available": true,
-                                                            "name": "Product with left sidebar - black \/ small",
-                                                            "public_title": "black \/ small",
-                                                            "options": ["black", "small"],
-                                                            "price": 20000,
-                                                            "weight": 0,
-                                                            "compare_at_price": 30000,
-                                                            "inventory_quantity": 0,
-                                                            "inventory_management": null,
-                                                            "inventory_policy": "deny",
-                                                            "barcode": null
-                                                        }, {
-                                                            "id": 3947658563,
-                                                            "title": "white \/ small",
-                                                            "option1": "white",
-                                                            "option2": "small",
-                                                            "option3": null,
-                                                            "sku": "",
-                                                            "requires_shipping": true,
-                                                            "taxable": true,
-                                                            "featured_image": null,
-                                                            "available": true,
-                                                            "name": "Product with left sidebar - white \/ small",
-                                                            "public_title": "white \/ small",
-                                                            "options": ["white", "small"],
-                                                            "price": 20000,
-                                                            "weight": 0,
-                                                            "compare_at_price": 30000,
-                                                            "inventory_quantity": 1,
-                                                            "inventory_management": null,
-                                                            "inventory_policy": "deny",
-                                                            "barcode": null
-                                                        }, {
-                                                            "id": 3947658627,
-                                                            "title": "black \/ medium",
-                                                            "option1": "black",
-                                                            "option2": "medium",
-                                                            "option3": null,
-                                                            "sku": "",
-                                                            "requires_shipping": true,
-                                                            "taxable": true,
-                                                            "featured_image": {
-                                                                "id": 2792669315,
-                                                                "product_id": 1293241795,
-                                                                "position": 2,
-                                                                "created_at": "2015-06-29T03:14:00-04:00",
-                                                                "updated_at": "2015-07-02T06:39:40-04:00",
-                                                                "src": "https:\/\/cdn.shopify.com\/s\/files\/1\/0908\/7252\/products\/12_fd5d3707-e135-43bc-bfa9-abe5f518c260.jpg?v=1435833580",
-                                                                "variant_ids": [3947658499, 3947658627]
-                                                            },
-                                                            "available": true,
-                                                            "name": "Product with left sidebar - black \/ medium",
-                                                            "public_title": "black \/ medium",
-                                                            "options": ["black", "medium"],
-                                                            "price": 20000,
-                                                            "weight": 0,
-                                                            "compare_at_price": 30000,
-                                                            "inventory_quantity": 1,
-                                                            "inventory_management": null,
-                                                            "inventory_policy": "deny",
-                                                            "barcode": null
-                                                        }, {
-                                                            "id": 3947658691,
-                                                            "title": "white \/ medium",
-                                                            "option1": "white",
-                                                            "option2": "medium",
-                                                            "option3": null,
-                                                            "sku": "",
-                                                            "requires_shipping": true,
-                                                            "taxable": true,
-                                                            "featured_image": null,
-                                                            "available": true,
-                                                            "name": "Product with left sidebar - white \/ medium",
-                                                            "public_title": "white \/ medium",
-                                                            "options": ["white", "medium"],
-                                                            "price": 20000,
-                                                            "weight": 0,
-                                                            "compare_at_price": 30000,
-                                                            "inventory_quantity": 1,
-                                                            "inventory_management": null,
-                                                            "inventory_policy": "deny",
-                                                            "barcode": null
-                                                        }],
-                                                        "images": ["\/\/cdn.shopify.com\/s\/files\/1\/0908\/7252\/products\/9_29fe62cc-0d0f-4cbc-b09a-6d6a8d7c2431.jpg?v=1435833580", "\/\/cdn.shopify.com\/s\/files\/1\/0908\/7252\/products\/12_fd5d3707-e135-43bc-bfa9-abe5f518c260.jpg?v=1435833580"],
-                                                        "featured_image": "\/\/cdn.shopify.com\/s\/files\/1\/0908\/7252\/products\/9_29fe62cc-0d0f-4cbc-b09a-6d6a8d7c2431.jpg?v=1435833580",
-                                                        "options": ["Color", "Size"],
-                                                        "content": "\u003cp\u003eNam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis amet voluptas assumenda est, omnis dolor repellendus quis nostrum.\u003c\/p\u003e\n\u003cp\u003eTemporibus autem quibusdam et aut officiis debitis aut rerum dolorem necessitatibus saepe eveniet ut et neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, ut aliquid ex ea commodi consequatur.\u003c\/p\u003e"
-                                                    },
-                                                    onVariantSelected: selectOptionsCallback,
-                                                    enableHistoryState: true
-                                                });
-
-                                                $('.single-option-selector').customStyle();
-
-                                                // Add label if only one product option and it isn't 'Title'.
-
-
-                                                // Auto-select first available variant on page load.
-
-
-                                                $('.single-option-selector:eq(0)').val("black").trigger('change');
-
-                                                $('.single-option-selector:eq(1)').val("small").trigger('change');
-
-
-                                            });
-                                        </script>
 
 
                                         <ul id="tabs_detail" class="tabs-panel-detail hidden-xs hidden-sm">

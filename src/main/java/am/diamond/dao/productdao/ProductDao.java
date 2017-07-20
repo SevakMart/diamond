@@ -41,4 +41,6 @@ public interface ProductDao extends Creatable<Product>, Retrieveable<Product>, U
 
     List<Product> getProductsSortedByDate(String sortingMethod, Integer offset, Integer maxResult);
 
+    List<Product> getNewestProducts();
+
 }
